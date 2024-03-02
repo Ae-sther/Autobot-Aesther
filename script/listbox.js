@@ -14,6 +14,7 @@ module.exports.handleReply = async function({ api, event, args, Threads, handleR
 
  if (parseInt(event.senderID) !== parseInt(handleReply.author)) return;
 
+
  var arg = event.body.split(" ");
  var idgr = handleReply.groupid[arg[1] - 1];
 
