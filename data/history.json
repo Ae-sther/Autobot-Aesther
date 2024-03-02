@@ -1,1 +1,91 @@
-[]
+[
+  {
+    "userid": "61557047661903",
+    "prefix": "/",
+    "admin": [
+      "100053549552408"
+    ],
+    "blacklist": [],
+    "enableCommands": [
+      {
+        "commands": [
+          "ai",
+          "anime",
+          "approve",
+          "Artify",
+          "ask",
+          "autoseen",
+          "dalle",
+          "dalle3",
+          "delete",
+          "dictionary",
+          "emi",
+          "emojimix",
+          "file",
+          "filter",
+          "gemini",
+          "gemma",
+          "gen",
+          "goiadminn",
+          "gojo",
+          "gpt4",
+          "help",
+          "hercai",
+          "image",
+          "imgur",
+          "info",
+          "insult",
+          "kick",
+          "kickall",
+          "linux",
+          "listbox",
+          "listfriend",
+          "llma",
+          "miko",
+          "mistral",
+          "music",
+          "npm",
+          "obfuscate",
+          "out",
+          "outall",
+          "pastebin",
+          "pinterest",
+          "poli",
+          "prefix",
+          "pxart",
+          "pyg",
+          "quote",
+          "recipe",
+          "replit",
+          "say",
+          "sendnoti",
+          "musicron",
+          "shoticron",
+          "sim2",
+          "sim",
+          "sing",
+          "spamkick",
+          "spamleave",
+          "stalk",
+          "teach",
+          "tempm",
+          "tid",
+          "tiktok",
+          "trans",
+          "uid",
+          "unsend",
+          "uptime",
+          "sdxl",
+          "popcat"
+        ]
+      },
+      {
+        "handleEvent": [
+          "antiout",
+          "resend"
+        ]
+      }
+    ],
+    "time": 0
+  }
+]

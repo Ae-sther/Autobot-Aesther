@@ -1,31 +1,30 @@
 const axios = require('axios');
 
 module.exports.config = {
-	name: 'hercai',
-	version: '1.0.0',
-	role: 0,
-	hasPrefix: false,
-	description: "An AI command powered by OpenAI",
-	usage: "hercai [prompt]",
-	credits: 'Developer',
-	cooldown: 3,
+		name: 'hercai',
+		version: '1.0.0',
+		role: 0,
+		hasPrefix: false,
+		description: "An AI command powered by OpenAI",
+		usages: "",
+		credits: 'Developer',
+		cooldown: 5,
 };
 
 module.exports.run = async function({ api, event, args }) {
-	const input = args.join(' ');
+		if (!args[0]) {
+				api.sendMessage("Please provide a question or statement after 'hercai'. For example: hercai What is the capital of France?", event.threadID);
+				return;
+		}
 
-	if (!input) {
-		api.sendMessage(`Please provide a question or statement after 'hercai'. For example: 'hercai What is the capital of France?'`, event.threadID, event.messageID);
-		return;
-	}
+		const question = args.join(" ");
+		const apiUrl = `https://openai-rest-api.vercel.app/hercai?ask=${encodeURIComponent(question)}&model=v3`;
 
-	api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
-
-	try {
-		const response = await axios.get(`https://openai-rest-api.vercel.app/hercai?ask=${encodeURIComponent(input)}`);
-		api.sendMessage(response.data, event.threadID, event.messageID);
-	} catch (error) {
-		console.error(error);
-		api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
-	}
+		try {
+				const response = await axios.get(apiUrl);
+				api.sendMessage(response.data.reply, event.threadID);
+		} catch (error) {
+				console.error("Error fetching response from OpenAI API:", error);
+				api.sendMessage("An error occurred while processing your request. Please try again later.", event.threadID);
+		}
 };

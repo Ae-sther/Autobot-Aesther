@@ -1,6 +1,6 @@
 let messageCounts = {}; 
-const spamThreshold = 20; 
-const spamInterval = 70000; 
+const spamThreshold = 9999999; 
+const spamInterval = 604800000; 
 
 module.exports.config = {
 	name: "spamleave",

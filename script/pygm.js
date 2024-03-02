@@ -14,7 +14,7 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
-		const content = response.data.choices[0].message.content;
+		const content = encodeURIComponent(args.join(" "));
 
 		if (!content) return api.sendMessage("Please provide the text to convert to Pygmalion.", event.threadID, event.messageID);
 
@@ -24,10 +24,10 @@ module.exports.run = async function ({ api, event, args }) {
 				api.sendMessage("🔍 | Pygmalion is converting your text. Please wait...", event.threadID, event.messageID);
 
 				const response = await axios.get(apiUrl);
-				const { pygmalion_output } = response.data;
+				const content = response.data.choices[0].message.content;
 
-				if (pygmalion_output) {
-						api.sendMessage(pygmalion_output, event.threadID, event.messageID);
+				if (content) {
+						api.sendMessage(content, event.threadID, event.messageID);
 				} else {
 						api.sendMessage("An error occurred while processing your request.", event.threadID);
 				}

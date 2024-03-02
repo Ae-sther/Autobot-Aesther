@@ -4,30 +4,24 @@ module.exports.config = {
 		name: "gemini",
 		version: "1.0.0",
 		credits: "dipto",
-	role: 0,
+		role: 0,
 		description: "Get a response from gemini AI",
-	hasPrefix: false,
-		usages: "[prompt]",
-		cooldown: 5,
-	  aliases: ["gem"]
+		hasPrefix: false,
+		usages: "{p}gemini [prompt]",
+		cooldown: 0,
+		aliases: ["gem"]
 };
 
 module.exports.run = async ({ api, event, args }) => {
-		const prompt = args.join(" ");
-	api.setMessageReaction("📝", event.messageID, () => { }, true);
-
-		if (!prompt) {
-				return api.sendMessage("Hello there, how can I assist you today?", event.threadID, event.messageID);
-		}
+		if (!args[0]) return api.sendMessage("Please provide a prompt after '{p}gemini'. For example: {p}gemini What is the capital of France?", event.threadID, event.messageID);
 
 		try {
-				const response = await axios.get(`https://gemini-d1p.onrender.com/dipto?prompt=${prompt}`);
-				const di = response.data.dipto; 
-				api.setMessageReaction("✅", event.messageID, () => { }, true);
-
-				api.sendMessage(`${di}`, event.threadID, event.messageID);
+				const prompt = args.join(' ');
+				const response = await axios.get(`https://openai-rest-api.vercel.app/hercai?model=gemini&ask=${encodeURIComponent(prompt)}`);
+				const answer = response.data.answer;
+				api.sendMessage(answer, event.threadID, event.messageID);
 		} catch (error) {
-				console.error('ERROR', error.response?.data || error.message);
-				api.sendMessage('An error occurred while processing the command.', event.threadID);
+				console.error("Error fetching response from Gemini AI:", error);
+				api.sendMessage("An error occurred while fetching the response. Please try again later.", event.threadID, event.messageID);
 		}
 };
