@@ -654,10 +654,7 @@ if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowe
 }
 
 if (event.type == "change_thread_image") api.sendMessage(`» [ GROUP UPDATES ] ${event.snippet}`, event.threadID);
-
-const moment = require('moment-timezone');
-const axios = require("axios");
-					
+			
 let approvedThreadsData = JSON.parse(fs.readFileSync(__dirname + "/cache/approvedThreads.json"));
 const threadSetting = (approvedThreadsData.threadData instanceof Map) ? approvedThreadsData.threadData.get(parseInt(event.threadID)) || {} : {};
 
