@@ -1,5 +1,6 @@
 module.exports.config = {
 		name: "gen",
+	  version: "25.0.0",
 		hasPrefix: false,
 		role: 0,
 		description: "Generate image",
