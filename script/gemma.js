@@ -9,7 +9,7 @@ module.exports.config = {
 		hasPrefix: false,
 		usages: "",
 		cooldown: 5,
-		aliases: ["ai88","ai99"],
+		aliases: ["ai88", "ai99"],
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -23,10 +23,11 @@ module.exports.run = async function ({ api, event, args }) {
 				api.sendMessage("🔍 | gemma is searching for your answer. Please wait...", event.threadID, event.messageID);
 
 				const response = await axios.get(apiUrl);
-				const { airesponse } = response.data;
+				const { data } = response;
 
-				if (airesponse) {
-						api.sendMessage(airesponse, event.threadID, event.messageID);
+				if (data && data.choices && data.choices.length > 0 && data.choices[0].message && data.choices[0].message.content) {
+						const content = data.choices[0].message.content;
+						api.sendMessage(content, event.threadID, event.messageID);
 				} else {
 						api.sendMessage("An error occurred while processing your request.", event.threadID);
 				}

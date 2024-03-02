@@ -2,37 +2,37 @@ const axios = require('axios');
 const fs = require('fs');
 
 module.exports.config = {
-    name: "pyg",
-    version: "1.0.0",
-    role: 0,
-    credits: "hazey",
-    description: "EDUCATIONAL",
-    hasPrefix: false,
-    usages: "",
-    cooldown: 5,
-    aliases: ["llma"],
+		name: "pyg",
+		version: "1.0.0",
+		role: 0,
+		credits: "hazey",
+		description: "EDUCATIONAL",
+		hasPrefix: false,
+		usages: "",
+		cooldown: 5,
+		aliases: ["llma"],
 };
 
 module.exports.run = async function ({ api, event, args }) {
-    const content = encodeURIComponent(args.join(" "));
+		const content = response.data.choices[0].message.content;
 
-    if (!content) return api.sendMessage("Please provide the text to convert to Pygmalion.", event.threadID, event.messageID);
+		if (!content) return api.sendMessage("Please provide the text to convert to Pygmalion.", event.threadID, event.messageID);
 
-    const apiUrl = `https://haze-ai-models-8d44a842ac90.herokuapp.com/pygmalion?content=${content}`;
+		const apiUrl = `https://haze-ai-models-8d44a842ac90.herokuapp.com/pygmalion?content=${content}`;
 
-    try {
-        api.sendMessage("🔍 | Pygmalion is converting your text. Please wait...", event.threadID, event.messageID);
+		try {
+				api.sendMessage("🔍 | Pygmalion is converting your text. Please wait...", event.threadID, event.messageID);
 
-        const response = await axios.get(apiUrl);
-        const { pygmalion_output } = response.data;
+				const response = await axios.get(apiUrl);
+				const { pygmalion_output } = response.data;
 
-        if (pygmalion_output) {
-            api.sendMessage(pygmalion_output, event.threadID, event.messageID);
-        } else {
-            api.sendMessage("An error occurred while processing your request.", event.threadID);
-        }
-    } catch (error) {
-        console.error(error);
-        api.sendMessage("🔨 | An error occurred while processing your request from API...", event.threadID);
-    }
+				if (pygmalion_output) {
+						api.sendMessage(pygmalion_output, event.threadID, event.messageID);
+				} else {
+						api.sendMessage("An error occurred while processing your request.", event.threadID);
+				}
+		} catch (error) {
+				console.error(error);
+				api.sendMessage("🔨 | An error occurred while processing your request from API...", event.threadID);
+		}
 };
