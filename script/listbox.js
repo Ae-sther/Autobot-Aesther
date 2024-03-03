@@ -5,8 +5,8 @@ module.exports.config = {
 		role: 2,
 		description: "Lấy tên và id các nhóm chứa bot",
 		hasPrefix: false,
-	  aliases: ["all"]
-		usages: "allbox",
+	  aliases: ["allbox"],
+		usage: "allbox",
 		cooldown: 5
 };
 
