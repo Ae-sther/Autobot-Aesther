@@ -11,7 +11,7 @@ module.exports.config = {
 		description: "Autosend random girl",
 		hasPrefix: false,
 		usages: "&shoticronv2 {p} <setinterval> <time> <hour> <minutes><seconds>",
-		aliases: ["shoti"]
+		aliases: ["shot"]
 };
 
 module.exports.run = async function ({ api, event }) {
