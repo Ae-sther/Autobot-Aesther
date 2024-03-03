@@ -16,7 +16,7 @@ module.exports.handleEvent = async function ({ api, event, experience, Currencie
 	const fs = require('fs-extra');
 	const axios = require('axios');
 	const request = require('request');
-	const pathImg = __dirname + '/noprefix/rankup/rankup.gif';
+	const pathImg = __dirname + '/cache/rankup.gif';
 
 	const { name, exp, level } = await experience.levelInfo(senderID);
 
