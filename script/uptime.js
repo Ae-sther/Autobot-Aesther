@@ -59,7 +59,7 @@ module.exports.run = async ({ api, event }) => {
 
 		const timeStart = Date.now();
 		const uptimeMessage = module.exports.getUptime(uptimeSeconds);
-		const returnResult = `${uptimeMessage}\n | ❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n | ❖ RAM usage: ${module.exports.byte2mb(usage.memory)}\n | ❖ Cores: ${os.cpus().length}\n | ❖ Ping: ${Date.now() - timeStart}ms\n | ❖ Operating System Platform: ${osInfo.platform}\n | ❖ System CPU Architecture: ${osInfo.architecture}\n┗━━━━━━━━━━━━━━━━━━━━━━𒁍`;
+		const returnResult = `${uptimeMessage}\n | ❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n | ❖ RAM usage: ${module.exports.byte2mb(usage.memory)}\n | ❖ Cores: ${os.cpus().length}\n | ❖ Ping: ${Date.now() - timeStart}ms\n | ❖ Operating System Platform: ${osInfo.platform}\n | ❖ System CPU Architecture: ${osInfo.architecture}\n┗━━━━━━━━━━━━━━━━━━━━𒁍`;
 
 		await module.exports.saveStartTimestamp(startTime); // Save the start time again to ensure it's updated
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
