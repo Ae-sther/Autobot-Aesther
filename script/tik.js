@@ -4,7 +4,7 @@ module.exports.config = {
 	role: 0,
 	credits: "Jonell Magallanes", //original code Kim Joseph DG Bien
 	description: "tiktok search",
-	hasPrefix: true,
+	hasPrefix: false,
 	aliases: ["tik"],
 	usage: "[Tiktok <search>]",
 	cooldown: 5,

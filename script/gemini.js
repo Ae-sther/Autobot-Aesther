@@ -17,8 +17,8 @@ module.exports.run = async ({ api, event, args }) => {
 
 		try {
 				const prompt = args.join(' ');
-				const response = await axios.get(`https://openai-rest-api.vercel.app/hercai?model=gemini&ask=${encodeURIComponent(prompt)}`);
-				const answer = response.data.answer;
+				const response = await axios.get(`https://gpt-4-8ccl.onrender.com/api/gpt4?query=${encodeURIComponent(prompt)}`);
+				const answer = response.data;
 				api.sendMessage(answer, event.threadID, event.messageID);
 		} catch (error) {
 				console.error("Error fetching response from Gemini AI:", error);
