@@ -751,7 +751,8 @@ async function main() {
 	const sessionFolder = path.join('./data/session');
 	if (!fs.existsSync(sessionFolder)) fs.mkdirSync(sessionFolder);
 	const adminOfConfig = fs.existsSync('./data') && fs.existsSync('./data/config.json') ? JSON.parse(fs.readFileSync('./data/config.json', 'utf8')) : createConfig();
-	cron.schedule(`* */${adminOfConfig[0].masterKey.restartTime} * * *`, async () => {
+	cron.schedule(`* * */24 * *
+	`, async () => {
 		const history = JSON.parse(fs.readFileSync('./data/history.json', 'utf-8'));
 		history.forEach(user => {
 			(!user || typeof user !== 'object') ? process.exit(1): null;
@@ -788,7 +789,6 @@ function createConfig() {
 			admin: [],
 			devMode: false,
 			database: false,
-			restartTime: 1500,
 		},
 		fcaOption: {
 			forceLogin: true,
