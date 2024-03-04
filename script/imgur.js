@@ -24,7 +24,7 @@ module.exports.run = async ({ api, event }) => {
 	}
 
 	try {
-		const res = await axios.get(`https://api.kenliejugarap.com/imgur/?imageLink=${encodeURIComponent(link2)}`);
+		const res = await axios.get(`https://eurix-api.replit.app/imgur?link=${encodeURIComponent(link2)}`);
 		const link = res.data.uploaded.image;
 		return api.sendMessage(`Here is the Imgur link for the image you provided:\n\n${link}`, event.threadID, event.messageID);
 	} catch (error) {

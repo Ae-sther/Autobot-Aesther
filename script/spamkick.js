@@ -5,7 +5,7 @@ const spamInterval = 60000;
 module.exports.config = {
 	name: "spamkick",
 	version: "1.0.0",
-	role: 2, // Set the required role to 2 (group admin)
+	role: 1, // Set the required role to 2 (group admin)
 	credits: "Jonell Magallanes and BLUE", // Remodel nanaman
 	description: "Automatically detect and act on spam",
 	hasPrefix: false,
