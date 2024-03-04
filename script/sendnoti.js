@@ -23,9 +23,8 @@ module.exports.run = async function ({ api, event, args, admin }) {
 			await api.sendMessage(
 				`𝙉𝙊𝙏𝙄𝘾𝙀 𝙁𝙍𝙊𝙈 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝙍 
  ---------------- 
- adminlink : https://www.facebook.com/${admin}
- --------------- 
- 『𝗡𝗼𝘁𝗶𝗰𝗲』${custom}`,
+ 『𝗡𝗼𝘁𝗶𝗰𝗲』${custom}
+ ---------------`,
 				thread.threadID
 			);
 			sentCount++;
