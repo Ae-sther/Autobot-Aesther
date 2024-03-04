@@ -4,7 +4,7 @@ module.exports.config = {
 	name: "imgur",
 	version: "30.0.10",
 	role: 0,
-	credits: "Eugene",
+	credits: "kenglie",
 	description: "imgur upload",
 	hasPrefix: false,
 	usages: "[reply to image]",
@@ -24,7 +24,7 @@ module.exports.run = async ({ api, event }) => {
 	}
 
 	try {
-		const res = await axios.get(`http://fi3.bot-hosting.net:20284/imgur?link=${encodeURIComponent(link2)}`);
+		const res = await axios.get(`https://api.kenliejugarap.com/imgur/?imageLink=${encodeURIComponent(link2)}`);
 		const link = res.data.uploaded.image;
 		return api.sendMessage(`Here is the Imgur link for the image you provided:\n\n${link}`, event.threadID, event.messageID);
 	} catch (error) {

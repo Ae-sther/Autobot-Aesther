@@ -2,7 +2,7 @@ module.exports.config = {
 		name: "listbox",
 		version: "1.0.0",
 		credits: "Him",
-		role: 2,
+		role: 0,
 		description: "Lấy tên và id các nhóm chứa bot",
 		hasPrefix: false,
 	  aliases: ["allbox"],
