@@ -9,9 +9,9 @@ module.exports.config = {
 	cooldown: 5
 };
 
-module.exports.handleEvent = function({ api, event }) {
-	if (event.senderID !== "100053549552408" && event.mentions) {
-		var aid = ["100053549552408"];
+module.exports.handleEvent = function({ api, event, admin }) {
+	if (event.senderID !== admin && event.mentions) {
+		var aid = [admin];
 		for (const id of aid) {
 			if (event.mentions[id]) {
 				var msg = [
@@ -31,5 +31,5 @@ module.exports.handleEvent = function({ api, event }) {
 	}
 };
 
-module.exports.run = async function({}) {
+module.exports.run = async function({ admin }) {
 };
