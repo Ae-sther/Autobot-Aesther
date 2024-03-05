@@ -4,7 +4,7 @@ const config = {
 		name: "hi",
 		version: "2.0.0",
 		role: 0,
-		hasPrefix: false,
+		hasPrefix: true,
 		credits: "Prince Osorio",
 		description: "hi with sticker",
 		aliases: [],

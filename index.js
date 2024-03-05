@@ -162,7 +162,6 @@ app.post('/login', async (req, res) => {
 		state,
 		commands,
 		prefix,
-		name,
 		admin
 	} = req.body;
 	try {
@@ -354,7 +353,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`》 ${prefix} 《 ❃ ➠ ${name}`, threadID, userid);
+					api.changeNickname(`》 ${prefix} 《 ❃ ➠ YAZKY`, threadID, userid);
 
 let gifUrls = [
 	  'https://i.imgur.com/l0cT2mf.mp4',
