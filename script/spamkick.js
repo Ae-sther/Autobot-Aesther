@@ -40,14 +40,14 @@ module.exports.handleEvent = function({ api, event, admin }) {
 			if (!admin.includes(senderID)) {
 				api.removeUserFromGroup(senderID, threadID);
 				api.sendMessage({
-					body: "🛡️ | Detected spamming. The user has been removed from the group.",
+					body: "",
 					mentions: [{
 						tag: senderID,
 						id: senderID
 					}]
 				}, threadID, messageID);
 			} else {
-				api.sendMessage("🛡️ | Detected spamming from a group admin. No action taken.", threadID, messageID);
+				api.sendMessage("", threadID, messageID);
 			}
 		}
 	}

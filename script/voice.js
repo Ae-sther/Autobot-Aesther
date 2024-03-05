@@ -29,7 +29,7 @@ module.exports.run = async function ({ api, args, event }) {
 		return api.sendMessage(`❌Invalid voice ID. Supported IDs are:\n ${supportedIds.join("\n")}`, event.threadID, event.messageID);
 	}
 
-	const apiKey = 'fuck'; // Replace 'fuck' with your actual API key.
+	const apiKey = 'fuck';
 	const apiUrl = `https://for-devs.onrender.com/api/voice?text=${encodeURIComponent(text)}&voiceid=${voiceId}&apikey=${apiKey}`;
 
 	try {
