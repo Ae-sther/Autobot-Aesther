@@ -23,7 +23,7 @@ module.exports.run = async function ({
 		const commands = enableCommands[0].commands;
 		if (!input) {
 			const pages = 20;
-			let page = 3;
+			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;
 			let helpMessage = `🔴🟢🟡\n\n『 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧S 』\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────⟡`;
