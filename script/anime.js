@@ -1,47 +1,119 @@
-const axios = require('axios');
-const fs = require('fs');
-module.exports.config = {
-  name: 'anime',
-  version: '1.0.0',
-  role: 0,
-  hasPrefix: true,
-  aliases: ['hanime'],
-  description: 'Get a random anime image',
-  usage: "Anime [category-type]",
-  credits: 'Develeoper',
-  cooldown: 5,
-};
-module.exports.run = async function({
-  api,
-  event,
-  args
-}) {
-  try {
-    const input = args.join(' ');
-    if (!input) {
-      const message = `Here's the list of anime categories:\n\nCategory: nsfw\nType:\n• waifu\n• neko\n• trap\n• blowjob\n\nCategory: sfw\nType:\n• waifu\n• neko\n• shinobu\n• megumin\n• bully\n• cuddle\n• cry\n• hug\n• awoo\n• kiss\n• lick\n• pat\n• smug\n• bonk\n• yeet\n• blush\n• smile\n• wave\n• highfive\n• handhold\n• nom\n• bite\n• glomp\n• slap\n• kill\n• kick\n• happy\n• wink\n• poke\n• dance\n• cringe\n\nUsage: anime category - type`;
-      api.sendMessage(message, event.threadID, event.messageID);
-    } else {
-      const split = input.split('-').map(item => item.trim());
-      const choice = split[0];
-      const category = split[1];
-      const time = new Date();
-      const timestamp = time.toISOString().replace(/[:.]/g, "-");
-      const pathPic = __dirname + '/cache/' + `${timestamp}_waifu.png`;
-      const {
-        data
-      } = await axios.get(`https://api.waifu.pics/${choice}/${category}`);
-      const picture = data.url;
-      const getPicture = (await axios.get(picture, {
-        responseType: 'arraybuffer'
-      })).data;
-      fs.writeFileSync(pathPic, Buffer.from(getPicture, 'utf-8'));
-      api.sendMessage({
-        body: '',
-        attachment: fs.createReadStream(pathPic)
-      }, event.threadID, () => fs.unlinkSync(pathPic), event.messageID);
-    }
-  } catch (error) {
-    api.sendMessage(`Error in the anime command: ${error.message}`);
-  }
+const axios = require("axios");
+const fs = require("fs-extra");
+const os = require("os");
+const yts = require("yt-search");
+const ytdl = require("@distube/ytdl-core");
+
+module.exports = {
+	sentVideos: [],
+	playlists: {
+		"playlist1": "PLaPLzpOlr3JSGd0fFH1jpBeZ9-mMeUQ-P",
+		"playlist2": "PL9iXyZ7BC0plLlV-FQdpkUv0KaLyRwgmh",
+		"playlist3": "PLoCqah2yZ7RI2diRqvJ-TAM6w_UpkgSVa",
+		"playlist4": "PLK3BZE3cGU6jHgTJY9b2edPw163WUzb7a",
+		"playlist5": "PLK3BZE3cGU6h2nIXa0yZHHX_qWtsfwdnc",
+		"playlist6": "PLDHnEFiZUKKNVFlbQgzHv5GvL2hHwgew5",
+		"playlist7": "PLdK4_hMpzJgTtBwbiScTsuvmKbJMeJXLx",
+		// Add more playlists as needed
+	},
+
+	config: {
+		name: "aniedit",
+		version: "2.0.0",
+		role: 0,
+		hasPrefix: false,
+		credits: "cliff",
+		description: "Fetch a random video from a YouTube playlist and send",
+		aliases: [],
+		usages: "",
+		cooldowns: 20
+	},
+
+	run: async function ({ api, event }) {
+		try {
+			const senderID = event.senderID;
+			const loadingMessage = await api.sendMessage("𝗟𝗼𝗮𝗱𝗶𝗻𝗴 𝗿𝗮𝗻𝗱𝗼𝗺 𝗮𝗻𝗶𝗺𝗲 𝘃𝗶𝗱𝗲𝗼..💫", event.threadID);
+
+			const apiKey = "AIzaSyAO1tuGus4-S8RJID51f8WJAM7LXz1tVNc";
+
+			const playlists = Object.values(this.playlists);
+			const randomPlaylistId = playlists[Math.floor(Math.random() * playlists.length)];
+
+			const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${apiKey}&playlistId=${randomPlaylistId}&part=contentDetails&maxResults=50`;
+			const response = await axios.get(playlistUrl);
+
+			const items = response.data.items;
+			const videoIds = items.map((item) => item.contentDetails.videoId);
+
+			if (this.sentVideos.length === videoIds.length) {
+				this.sentVideos = [];
+			}
+
+			const unwatchedVideoIds = videoIds.filter((videoId) => !this.sentVideos.includes(videoId));
+
+			if (unwatchedVideoIds.length === 0) {
+				api.unsendMessage(loadingMessage.messageID);
+				return api.sendMessage("No unwatched videos left.", event.threadID);
+			}
+
+			const randomVideoId = unwatchedVideoIds[Math.floor(Math.random() * unwatchedVideoIds.length)];
+			this.sentVideos.push(randomVideoId);
+
+			const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${randomVideoId}&part=snippet`;
+			const videoResponse = await axios.get(videoDetailsUrl);
+
+			const videoInfo = videoResponse.data.items[0].snippet;
+			const randomVideoTitle = videoInfo.title;
+
+			const cacheFilePath = os.tmpdir() + "/randomVideoTitle.txt";
+			fs.writeFileSync(cacheFilePath, randomVideoTitle);
+
+			const searchResults = await yts(randomVideoTitle);
+
+			if (!searchResults.videos.length) {
+				api.unsendMessage(loadingMessage.messageID);
+				return api.sendMessage("No video found based on the cached title.", event.threadID);
+			}
+
+			const foundVideo = searchResults.videos[0];
+			const videoUrl = foundVideo.url;
+
+			const stream = ytdl(videoUrl, { filter: "audioandvideo" });
+			const fileName = `${senderID}.mp4`;
+			const filePath = __dirname + `/cache/${fileName}`;
+
+			stream.pipe(fs.createWriteStream(filePath));
+
+			stream.on('response', () => {
+				console.info('[DOWNLOADER]', 'Starting download now!');
+			});
+
+			stream.on('info', (info) => {
+				console.info('[DOWNLOADER]', `Downloading video: ${info.videoDetails.title}`);
+			});
+
+			stream.on('end', () => {
+				console.info('[DOWNLOADER] Downloaded');
+
+				if (fs.statSync(filePath).size > 26214400) {
+					fs.unlinkSync(filePath);
+					api.unsendMessage(loadingMessage.messageID);
+					return api.sendMessage('❌ | The file could not be sent because it is larger than 25MB.', event.threadID);
+				}
+
+				const message = {
+					body: `📹 | 𝗛𝗲𝗿𝗲'𝘀 𝘁𝗵𝗲 𝗿𝗮𝗻𝗱𝗼𝗺 𝗮𝗻𝗶𝗺𝗲 𝘃𝗶𝗱𝗲𝗼 \n\n🔮 | 𝗧𝗶𝘁𝗹𝗲: ${randomVideoTitle}\n⏰| 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻: ${foundVideo.duration.timestamp}`,
+					attachment: fs.createReadStream(filePath)
+				};
+
+				api.sendMessage(message, event.threadID, () => {
+					fs.unlinkSync(filePath);
+					api.unsendMessage(loadingMessage.messageID);
+				});
+			});
+		} catch (error) {
+			console.error('[ERROR]', error);
+			api.sendMessage('An error occurred while processing the command.', event.threadID);
+		}
+	},
 };

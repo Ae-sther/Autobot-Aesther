@@ -139,7 +139,7 @@ module.exports.run = async function ({ api, event, input }) {
 												file.on('finish', () => {
 														api.sendMessage(
 																{
-																		body: `𝗔𝗨𝗧𝗢𝗦𝗘𝗡𝗗 𝗩𝗜𝗗𝗘𝗢 𝗙𝗥𝗢𝗠 𝗗𝗥𝗜𝗩𝗘 𝗘𝗩𝗘𝗥𝗬 30 𝗠𝗜𝗡𝗨𝗧𝗘𝗦\n\nDRIVE-ID: ${chosenVideoUrl}`,
+																		body: `𝗔𝗨𝗧𝗢𝗦𝗘𝗡𝗗 𝗩𝗜𝗗𝗘𝗢 𝗙𝗥𝗢𝗠 𝗗𝗥𝗜𝗩𝗘`,
 																		attachment: fs.createReadStream(__dirname + '/cache/shoti.mp4'),
 																},
 																threadID,
