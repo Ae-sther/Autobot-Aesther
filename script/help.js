@@ -22,7 +22,7 @@ module.exports.run = async function ({
 		const eventCommands = enableCommands[1].handleEvent;
 		const commands = enableCommands[0].commands;
 		if (!input) {
-			const pages = 999;
+			const pages = 30;
 			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;

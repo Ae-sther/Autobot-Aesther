@@ -121,6 +121,27 @@ const routes = [{
 }, {
 	path: '/online_user',
 	file: 'online.html'
+},{
+  path: '/contact',
+	file: 'contact.html'
+},{
+	path: '/random_shoti',
+	file: 'shoti.html'
+}, {
+	path: '/analog',
+	file: 'analog.html'
+}, {
+	path: '/clock',
+	file: 'clock.html'
+},{
+  path: '/time',
+	file: 'crazy.html'
+},{
+	path: '/developer',
+	file: 'developer.html'
+},{
+	path: '/random',
+	file: 'random.html'
 }, ];
 routes.forEach(route => {
 	app.get(route.path, (req, res) => {
@@ -353,7 +374,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`》 ${prefix} 《 ❃ ➠ YAZKY`, threadID, userid);
+					api.changeNickname(`》 ${prefix} 《 ❃ ➠ YAZKYBOT`, threadID, userid);
 
 let gifUrls = [
 	  'https://i.imgur.com/l0cT2mf.mp4',
@@ -753,8 +774,7 @@ async function main() {
 	const sessionFolder = path.join('./data/session');
 	if (!fs.existsSync(sessionFolder)) fs.mkdirSync(sessionFolder);
 	const adminOfConfig = fs.existsSync('./data') && fs.existsSync('./data/config.json') ? JSON.parse(fs.readFileSync('./data/config.json', 'utf8')) : createConfig();
-	
-	cron.schedule(`0 0 */${adminOfConfig[0].masterKey.restartTime}  * *`, async () => {
+	cron.schedule(`*/${adminOfConfig[0].masterKey.restartTime} * * * *`, async () => {
 		const history = JSON.parse(fs.readFileSync('./data/history.json', 'utf-8'));
 		history.forEach(user => {
 			(!user || typeof user !== 'object') ? process.exit(1): null;
@@ -791,7 +811,7 @@ function createConfig() {
 			admin: [],
 			devMode: false,
 			database: false,
-			restartTime: 20
+			restartTime: 60
 		},
 		fcaOption: {
 			forceLogin: true,

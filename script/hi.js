@@ -10,7 +10,7 @@ const config = {
 		aliases: [],
 		usages: "",
 		cooldown: 5
-}
+};
 
 const handleEvent = async ({ event, api }) => {
 		let KEY = [
@@ -20,14 +20,18 @@ const handleEvent = async ({ event, api }) => {
 				// Add other keywords as needed
 		];
 
-		if (!hiFlag || !KEY.includes(event.body.toLowerCase())) return;
+		if (!hiFlag || !checkKeyword(event.body, KEY)) return;
 
 		let data = [
 				"184002922217363", "184023658881956", "184003212217334", "184002655550723", "184003438883978", "2379545595403511", "1926234657415528", "4046655705381617", "4046877352026119", "4046884992025355", "4070816262965561"
 		];
 		const prefix = "";
 		let sticker = data[Math.floor(Math.random() * data.length)];
-		let juswa = ["Have you eaten?", "What are you doing?", "How are you senpai?", "I'm a chat bot nice to meet you", "I'm updating my commands, What are you doing?", "Can you interact with my admin (Cliff Vincent)", "You're so beautiful/handsome binibini/ginoo", "I love you mwa */kiss your forehead.", "Are you bored? talk to my admin", "How are you my dear", "Sana okay kalang.", "Are you ok?", "Be safe, Mwaa.", "Wag magpapagutom mahal.", `Use ${prefix}help to see my commands. `];
+		let juswa = ["Have you eaten?", "What are you doing?", "How are you senpai?", "I'm a chat bot nice to meet you", "Do you need any help?", "Is there anything on your mind?",
+				"Tell me about your day",
+				"Have you watched any good movies lately?",
+				"What's your favorite hobby?",
+				"Do you believe in aliens?", "I'm updating my commands, What are you doing?", "Can you interact with my admin (Cliff Vincent)", "You're so beautiful/handsome binibini/ginoo", "I love you mwa */kiss your forehead.", "Are you bored? talk to my admin", "How are you my dear", "Sana okay kalang.", "Are you ok?", "Be safe, Mwaa.", "Wag magpapagutom mahal.", `Use ${prefix}help to see my commands. `];
 		let juswa1 = juswa[Math.floor(Math.random() * juswa.length)];
 
 		let moment = require("moment-timezone");
@@ -54,11 +58,21 @@ const handleEvent = async ({ event, api }) => {
 						api.sendMessage({ sticker: sticker }, event.threadID);
 				}, 100);
 		}, event.messageID);
-}
+};
 
 const run = async ({ event, api }) => {
 		hiFlag = !hiFlag; // Toggle the hi flag
 		return api.sendMessage(`${hiFlag ? "on" : "off"} success!`, event.threadID, event.messageID);
+};
+
+function checkKeyword(body, keywords) {
+		if (!body || !keywords) return false;
+		for (let keyword of keywords) {
+				if (body.includes(keyword)) {
+						return true;
+				}
+		}
+		return false;
 }
 
 module.exports = {

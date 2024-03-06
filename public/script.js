@@ -57,6 +57,7 @@ async function State() {
 					commands: Commands,
 					prefix: document.getElementById('inputOfPrefix').value,
 					admin: document.getElementById('inputOfAdmin').value,
+					botName: document.getElementById('inputOfBotName').value,
 				}),
 			});
 			const data = await response.json();

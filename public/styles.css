@@ -7,6 +7,8 @@ body {
 }
  .container {
 	   color: #FFFF;
+	   background: rgb(0, 153, 255);
+      background: linear-gradient(90deg, rgba(0, 153, 255, 1) 11%, rgba(14, 160, 226, 1) 25%, rgba(75, 190, 106, 1) 66%, rgba(102, 204, 51, 1) 89%);
 	   background-color: rgba(0, 0, 0, 0.5);
 		 border-radius: 10px;
 		 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -127,12 +129,11 @@ body {
 	border-color: #ccc;
 	background-color: #fff;
 }
-#listOfCommands, #listOfCommandsEvent, #prefixOfCommands, #nameOfBotAccount, #adminOfCommands {
+#listOfCommands, #listOfCommandsEvent, #prefixOfCommands, #adminOfCommands {
 	border: none !important;
 }
 
 #listOfCommands:not(.modal), #listOfCommandsEvent:not(.modal), #prefixOfCommands:not(.modal),
-#nameOfBotAccount:not(.modal),
 #adminOfCommands:not(.modal) {
 	box-shadow: none !important;
 }

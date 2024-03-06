@@ -2,7 +2,7 @@ module.exports.config = {
   name: "poli",
   version: "1.0.0",
   role: 0,
-  hasPrefix: true,
+  hasPrefix: false,
   credits: "Developer",
   description: "generate image from polination.",
   usages: "poli [promt]",
