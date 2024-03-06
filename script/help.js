@@ -22,8 +22,8 @@ module.exports.run = async function ({
 		const eventCommands = enableCommands[1].handleEvent;
 		const commands = enableCommands[0].commands;
 		if (!input) {
-			const pages = 30;
-			let page = 1;
+			const pages = 20;
+			let page = 3;
 			let start = (page - 1) * pages;
 			let end = start + pages;
 			let helpMessage = `🔴🟢🟡\n\n『 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧S 』\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────⟡`;
@@ -38,7 +38,7 @@ module.exports.run = async function ({
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
-			const pages = 999;
+			const pages = 100;
 			let start = (page - 1) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;

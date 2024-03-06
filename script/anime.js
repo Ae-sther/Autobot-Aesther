@@ -32,10 +32,12 @@ module.exports = {
 	run: async function ({ api, event }) {
 		try {
 			const senderID = event.senderID;
-			const loadingMessage = await api.sendMessage("𝗟𝗼𝗮𝗱𝗶𝗻𝗴 𝗿𝗮𝗻𝗱𝗼𝗺 𝗮𝗻𝗶𝗺𝗲 𝘃𝗶𝗱𝗲𝗼..💫", event.threadID);
+
+			const loadingMessage = await api.sendMessage("𝗟𝗼𝗮𝗱𝗶𝗻𝗴 𝗿𝗮𝗻𝗱𝗼𝗺 𝗮𝗻𝗶𝗺𝗲 𝘃𝗶𝗱𝗲𝗼..💫", event.threadID, null, event.messageID);
 
 			const apiKey = "AIzaSyAO1tuGus4-S8RJID51f8WJAM7LXz1tVNc";
 
+			// Get random playlist
 			const playlists = Object.values(this.playlists);
 			const randomPlaylistId = playlists[Math.floor(Math.random() * playlists.length)];
 
@@ -53,16 +55,18 @@ module.exports = {
 
 			if (unwatchedVideoIds.length === 0) {
 				api.unsendMessage(loadingMessage.messageID);
-				return api.sendMessage("No unwatched videos left.", event.threadID);
+				return api.sendMessage("No unwatched videos left.", event.threadID, null, event.messageID);
 			}
 
 			const randomVideoId = unwatchedVideoIds[Math.floor(Math.random() * unwatchedVideoIds.length)];
+
 			this.sentVideos.push(randomVideoId);
 
 			const videoDetailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${randomVideoId}&part=snippet`;
 			const videoResponse = await axios.get(videoDetailsUrl);
 
 			const videoInfo = videoResponse.data.items[0].snippet;
+
 			const randomVideoTitle = videoInfo.title;
 
 			const cacheFilePath = os.tmpdir() + "/randomVideoTitle.txt";
@@ -72,7 +76,7 @@ module.exports = {
 
 			if (!searchResults.videos.length) {
 				api.unsendMessage(loadingMessage.messageID);
-				return api.sendMessage("No video found based on the cached title.", event.threadID);
+				return api.sendMessage("No video found based on the cached title.", event.threadID, null, event.messageID);
 			}
 
 			const foundVideo = searchResults.videos[0];
@@ -98,7 +102,7 @@ module.exports = {
 				if (fs.statSync(filePath).size > 26214400) {
 					fs.unlinkSync(filePath);
 					api.unsendMessage(loadingMessage.messageID);
-					return api.sendMessage('❌ | The file could not be sent because it is larger than 25MB.', event.threadID);
+					return api.sendMessage('❌ | The file could not be sent because it is larger than 25MB.', event.threadID, null, event.messageID);
 				}
 
 				const message = {
@@ -106,14 +110,17 @@ module.exports = {
 					attachment: fs.createReadStream(filePath)
 				};
 
-				api.sendMessage(message, event.threadID, () => {
+				api.sendMessage(message, event.threadID, null, event.messageID, () => {
 					fs.unlinkSync(filePath);
-					api.unsendMessage(loadingMessage.messageID);
 				});
+
+				setTimeout(() => {
+					api.unsendMessage(loadingMessage.messageID);
+				}, 10000);
 			});
 		} catch (error) {
 			console.error('[ERROR]', error);
-			api.sendMessage('An error occurred while processing the command.', event.threadID);
+			api.sendMessage('An error occurred while processing the command.', event.threadID, null, event.messageID);
 		}
 	},
 };
