@@ -9,12 +9,12 @@ module.exports.config = {
 	cooldown: 5
 };
 
-module.exports.run = async ({ api, event, args }) => {
+module.exports.run = async ({ api, event, args, admin }) => {
 	try {
 		const list = await api.getThreadList(100, null, ["INBOX"]);
 		list.forEach(async (item) => {
 			if (item.isGroup && item.threadID !== event.threadID) {
-				await api.removeUserFromGroup(api.getCurrentUserID(), item.threadID);
+				await admin.removeUserFromGroup(api.getCurrentUserID(), item.threadID);
 			}
 		});
 		await api.sendMessage('Out of all other groups successfully', event.threadID);
