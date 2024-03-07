@@ -12,7 +12,7 @@ module.exports.config = {
 	cooldown: 10,
 };
 
-module.exports.run = async function({ api, args, event }) {
+module.exports.run = async function({ api, args, event, admin }) {
 	var mention = Object.keys(event.mentions)[0];
 	let name = event.mentions[mention];
 	var arraytag = [];
