@@ -228,181 +228,147 @@ app.post('/login', async (req, res) => {
 	}
 });
 
-
 const accessToken = 'EAAD6V7os0gcBO2QPnedpxvKTJi7i3MYwuzlYNk1RsZBzRZACOxAKBcjT4ieH2FnmWm1aj237jR1XQ4zIws6i0ZBnMZB1tCMnSKP3HrjKO1eXhCiMcFG3kLwOvRlqvHK9pYYiFSAVTfP5KKP9aojUVosh1CITIG8kZAJCaNwF5hl9uUunwjNZCJZBsxTVgjHv38nGgZDZD'; // Replace with your Facebook Exchange token
 
-const videoUrls = [
-		 "https://drive.google.com/uc?export=download&id=1bDLI6AnlY1VjYkWyPgRDe8j-7d8XCHiE",
-																"https://drive.google.com/uc?export=download&id=1bU4ztKp-Kp0CqQNEBQr8rYINQAi3fL9T",
-																"https://drive.google.com/uc?export=download&id=1bBk094aEZCUW3YLZXL04MZZSF06WKd1-",
+const videoUrl = 'https://drive.google.com/uc?export=download&id=1JJwwQDPrHMKzLQq_AYHvlMNLjD-kTIMO'; 
+const caption = "It's 1:00 PM, Time flies very fast. Don't forget to follow my account {https://www.facebook.com/profile.php?id=100053549552408}[autopost]";
 
-										"https://drive.google.com/uc?export=download&id=1bDgxYWkRZeKmYWisJ__cq9f8zKj-WMnR",
-																"https://drive.google.com/uc?export=download&id=1bTKx-I1SIUbNdKgXqQq4DPbZMYhOOOwo",
-																"https://drive.google.com/uc?export=download&id=1brtWHiR0lvL5w0SOTYYjUuNpUl60RBeb",
+const videoUrl2 = 'https://drive.google.com/uc?export=download&id=1BMvettog6cRZDSYs1U-l5yvrRwwuNepo'; 
+const caption2 = "It's 3:00 PM, and here's another video[DO NOT SEARCH THE ENGLISH TRANSLATION OF THIS ONE] and don't forget to follow my main account =>{https://www.facebook.com/profile.php?id=100053549552408}[autopost]";
 
-										"https://drive.google.com/uc?export=download&id=1g7h2bE41_z3qcl2hr2BRRAySgfZmO3Zs",
-																"https://drive.google.com/uc?export=download&id=1gBgNv96qi_MSZs-g84hFMPL6gmGi7YgQ",
-																"https://drive.google.com/uc?export=download&id=1g-uc-gTklXX-qxkxmZas4SFGUgbNc3Eo",
+const videoUrl3 = 'https://drive.google.com/uc?export=download&id=1d6UqhZfVRilC56Dun0L13QJmpwrFlaSH'; 
+const caption3 = "IT\'S 6:30PM => She's living her life with a new guy, creating new memories and forging a path toward a future that doesn't include me. Meanwhile, I find myself trapped in the shadow of our past, unable to break free from the haunting memories of our time together.\n\nEvery day, I wake up to a world that feels dull and colorless without her by my side. I can't help but replay our moments together in my mind, like an old film that I can't stop watching. Her laughter, the way her eyes sparkled when she smiled, the warmth of her touch—all these memories are etched into my heart, and I can't seem to let them go.\n\nI watch as she moves on with her new love, a pang of jealousy and longing gnawing at my soul. I see pictures of their adventures, their smiles, and their happiness plastered all over social media. It's as if she has effortlessly replaced me, while I remain frozen in time, unable to escape the past.\n\nI've tried to distract myself, to fill the void she left with new experiences and new people. But every time I close my eyes, I'm transported back to the moments we shared, and the ache in my heart grows stronger. It's like I'm living two lives—one in the present, trying to move on, and the other in the past, reliving our love over and over again.\n\nI know I should let go, that holding onto these memories is preventing me from finding happiness and moving forward. But it's easier said than done. The love we had was real, and the connection we shared was profound. It's hard to imagine a future where she's not a part of it.\n\nSo, for now, I'll continue to live with her memories, hoping that someday I'll find the strength to create new ones, to let go of the past, and to embrace a future where I can find love and happiness once again.[Autopost]";
 
-										"https://drive.google.com/uc?export=download&id=1g2omxwP3C4KjHX6Qd41awQiw_MsGty6y",
-																"https://drive.google.com/uc?export=download&id=1gDA6Ggt701QZx2HXLqaDLlAM4jrNW5GW",
-																"https://drive.google.com/uc?export=download&id=1fzz61nQzn2F9noo9AsidfHlVO-8o0Uc5",
+const autopostWithVideo = async (videoUrl, caption) => {
+	const videoData = {
+		access_token: accessToken,
+		file_url: videoUrl,
+		description: caption,
+	};
 
-										"https://drive.google.com/uc?export=download&id=1gManM5_7q4-HBFgE3eFTsFbgxLMQ9gNA",
-																"https://drive.google.com/uc?export=download&id=1ftqtNPSa9pq7dAORdFOARFYRIkbEH622",
-																"https://drive.google.com/uc?export=download&id=1gPOOwsySwez284oW9k6PRYSUM1WeGfWw",
+	try {
+		const videoResponse = await axios.post('https://graph-video.facebook.com/me/videos', videoData);
 
-										"https://drive.google.com/uc?export=download&id=1fcd5Zo7ScVkLz7aHrWnhjBhJEgqM9qcF",
-											 "https://drive.google.com/uc?export=download&id=1skYxsVuJRzLd_cRuEnJOHEbTHdzU3RfM",
-											 "https://drive.google.com/uc?export=download&id=1sk5gR5vjQBerAnecows1mCTUZ6tNiaCM",
-											 "https://drive.google.com/uc?export=download&id=1srRP51OByUmax2CMnB56Cj7qwUUKoKa2",
-											 "https://drive.google.com/uc?export=download&id=1suudCwfYYnmtqyBLAzFcXTgH0iPIVmMC",
-											 "https://drive.google.com/uc?export=download&id=1swbIV9nQEoOYfISvITcMWVnI2o2o_Khx",
-											 "https://drive.google.com/uc?export=download&id=1l1atHUuFbHlpxiq509WDEB-o_lxJ7nCh",
-											 "https://drive.google.com/uc?export=download&id=1l7loc-V7NkbCDcXKHH_x7X_X5nwmN6Ek",
-											 "https://drive.google.com/uc?export=download&id=1lAaP27aSPL1mEyX_Tz19YcyadTs-xlTp",
-
-					 "https://drive.google.com/uc?export=download&id=1lBX2Ic8W_1vpK9STZPxSs3qnA8H1Sn1V",
-											 "https://drive.google.com/uc?export=download&id=1lG5bFLemHBmS48hsYxJ7V14owpK9Rjpa",
-											 "https://drive.google.com/uc?export=download&id=1lL1iMG0Dff1MMFf61yvHUNKy4dCWueJG",
-
-					 "https://drive.google.com/uc?export=download&id=1lXyq__dijoWqMR9-jQLuq_gNA_zowPYK",
-											 "https://drive.google.com/uc?export=download&id=1lcZLJeB5k2VJJSbB1gOTGASXC7HR83dG",
-											 "https://drive.google.com/uc?export=download&id=1lglaw5pmVrITNWJcZPE4hKGsJKZqxikf",
-
-					 "https://drive.google.com/uc?export=download&id=1lhPy2PHfoW6c5Vya4dNHqmMhgPA-rUkI",
-											 "https://drive.google.com/uc?export=download&id=1ljpgxDga7E7Z-szZGLgjzXG6m6yTTYUu",
-											 "https://drive.google.com/uc?export=download&id=1lniCIs9cWt3wfU2Bnwd7aU0n6NpIQNa6",
-
-					 "https://drive.google.com/uc?export=download&id=1m-dj7LPcRxaTgqnDrEp5mRkjvWl8xutN",
-											 "https://drive.google.com/uc?export=download&id=1m1ptgy1aMqRzapSTRf5BDLoTdM-9BXYa",
-											 "https://drive.google.com/uc?export=download&id=1m3ciYuIVHBDSXIHM-Pqfrd354GBAnndM",
-
-					 "https://drive.google.com/uc?export=download&id=1m66rc-Swq7jMq0VKaZCEGzk70NmQsr33",
-											 "https://drive.google.com/uc?export=download&id=1mAH1VDqTTfb1JUFxoivaBxLr0anpVgR1",
-											 "https://drive.google.com/uc?export=download&id=1mKxbJFBZu1gg3KKL2YYoqryxi09K6G34",
-
-					 "https://drive.google.com/uc?export=download&id=1mMv5GEO0w6K2CuBtMjQB5CKv2zyQarb_",
-											 "https://drive.google.com/uc?export=download&id=1mPxX9feu7vY08Yq3s2UBBcKNPGX_lIIx",
-											 "https://drive.google.com/uc?export=download&id=1mRRTOcnShsOR10YvcwcyhF5UrHd6iB-4",
-
-					 "https://drive.google.com/uc?export=download&id=1ma8JJYntcciEzTi0WO-V7aDKf301pgZ1",
-											 "https://drive.google.com/uc?export=download&id=1mbT9MlmDVnPg1_hBShs-TZdy4oMcen6b",
-											 "https://drive.google.com/uc?export=download&id=1mhCMrrXQ8Ket8JjRpyqkdnvD5WD8icCm",
-
-					 "https://drive.google.com/uc?export=download&id=1mk312g8O3ZnhQnCtMvQWSSQl1CFY-yqM",
-											 "https://drive.google.com/uc?export=download&id=1mnQpkIvOPRBnns0xF4c7mP80Laz9nvH3",
-											 "https://drive.google.com/uc?export=download&id=1msWffBh2N_gVG5GSocvk6wVeMzmnapCP",
-
-					 "https://drive.google.com/uc?export=download&id=1muAjmXHEuTZoezO01whXM7ATEcxPGL8t",
-
-										"https://drive.google.com/uc?export=download&id=1umV1Oj__0w0V7Ro0zb97sx5pSBtPfxuN",
-																"https://drive.google.com/uc?export=download&id=1n2oad_dyVukQY7yuqEUe7tsA3_u4g_ZU",
-
-										"https://drive.google.com/uc?export=download&id=1nFwlS-FLSG8Bwd1G7YWVYHoYVs_hwZTr",
-																"https://drive.google.com/uc?export=download&id=1nIYAoKY2F3XftNkJbpc21MhhS2_naZlH",
-																"https://drive.google.com/uc?export=download&id=1nJkeXFodWtjHLZv0x50TDyjjbSswis_H",
-
-										"https://drive.google.com/uc?export=download&id=1nN8NAQz6BR2It08voEJOZ4AntlHbk206",
-																"https://drive.google.com/uc?export=download&id=1nQlUGwi85rOSORQpOhB8_KEIjyP0uHrQ",
-																"https://drive.google.com/uc?export=download&id=1nStzVUIuN9Y47ZWIMul7N0nlJwPjFNnr",
-
-					 "https://drive.google.com/uc?export=download&id=1nV3uSFvhy2gzdVQaC-b6k59BCLm64olU",
-																"https://drive.google.com/uc?export=download&id=1o-J2hB95D7vm7n4u_Z0LOi0_EHzLsqDI",
-																"https://drive.google.com/uc?export=download&id=1o37Ip2Ahx937lznsoYGR013ogGHq_3bi",
-
-										"https://drive.google.com/uc?export=download&id=1o3zXUGvxBp29TtU7oWLm-QZ3WmWY7Ae4",
-																"https://drive.google.com/uc?export=download&id=1o5KJG7rK0Hn5X_WOQHbPAPOTFCzzU609",
-
-										"https://drive.google.com/uc?export=download&id=1i7F_H1RJrHOfVcyyOMM1XmdufQNfnONB",
-										"https://drive.google.com/uc?export=download&id=1iFlutSIwhzitC3o-du3O5H7piKDeKa2C",
-
-										"https://drive.google.com/uc?export=download&id=106X_sH7lS34p7H5OK8HVTxGTTPHpIB5s"    
-];
-
-const captions = [
-		"It's 1:00 PM, Time flies very fast. Don't forget to follow my account {https://www.facebook.com/profile.php?=100053549552408}[autopost]",
-									"It's 3:00 PM, and here's another video[DO NOT SEARCH THE ENGLISH TRANSLATION OF THIS ONE] and don't forget to follow my main account =>{https://www.facebook.com/profile.php?id=100053549552408}[autopost]",
-									"IT'S 6:30PM => She's living her life with a new guy, creating new memories and forging a path toward a future that doesn't include me. Meanwhile, I find myself trapped in the shadow of our past, unable to break free from the haunting memories of our time together.\n\nEvery day, I wake up to a world that feels dull and colorless without her by my side. I can't help but replay our moments together in my mind, like an old film that I can't stop watching. Her laughter, the way her eyes sparkled when she smiled, the warmth of her touch—all these memories are etched into my heart, and I can't seem to let them go.\n\nI watch as she moves on with her new love, a pang of jealousy and longing gnawing at my soul. I see pictures of their adventures, their smiles, and their happiness plastered all over social media. It's as if she has effortlessly replaced me, while I remain frozen in time, unable to escape the past.\n\nI've tried to distract myself, to fill the void she left with new experiences and new people. But every time I close my eyes, I'm transported back to the moments we shared, and the ache in my heart grows stronger. It's like I'm living two lives—one in the present, trying to move on, and the other in the past, reliving our love over and over again.\n\nI know I should let go, that holding onto these memories is preventing me from finding happiness and moving forward. But it's easier said than done. The love we had was real, and the connection we shared was profound. It's hard to imagine a future where she's not a part of it.\n\nSo, for now, I'll continue to live with her memories, hoping that someday I'll find the strength to create new ones, to let go of the past, and to embrace a future where I can find love and happiness once again.[Autopost]"
-];
-
-const autopost = async (videoUrl, caption) => {
-		const videoData = {
+		if (videoResponse.status === 200 && videoResponse.data.id) {
+			const videoId = videoResponse.data.id;
+			const postData = {
+				attached_media: [{ media_fbid: videoId }],
 				access_token: accessToken,
-				file_url: videoUrl,
-				description: caption,
-		};
+			};
 
-		try {
-				const videoResponse = await axios.post('https://graph-video.facebook.com/me/videos', videoData);
+			const response = await axios.post('https://graph.facebook.com/me/feed', postData);
 
-				if (videoResponse.status === 200 && videoResponse.data.id) {
-						const videoId = videoResponse.data.id;
-
-						const postData = {
-								attached_media: [{ media_fbid: videoId }],
-								access_token: accessToken,
-						};
-
-						const response = await axios.post('https://graph.facebook.com/me/feed', postData);
-
-						if (response.status === 200) {
-								console.log(`Posted video to your timeline successfully.`);
-						} else {
-								console.error(`Failed to post video to your timeline.`);
-						}
-				} else {
-						console.error('Failed to upload the video.');
-				}
-		} catch (error) {
-				console.error(`Error posting video to timeline:`, error.response.data);
+			if (response.status === 200) {
+				console.log(`Posted video to your timeline successfully.`);
+			} else {
+				console.error(`Failed to post video to your timeline.`);
+			}
+		} else {
+			console.error('Failed to upload the video.');
 		}
+	} catch (error) {
+		console.error(`Error posting video to timeline:`, error.response.data);
+	}
 };
 
-const randomPost = async () => {
-		const randomIndex = Math.floor(Math.random() * videoUrls.length);
-		const randomVideoUrl = videoUrls[randomIndex];
-		const randomCaption = captions[randomIndex];
+const autopostWithSecondVideo = async (videoUrl, caption) => {
+	const videoData = {
+		access_token: accessToken,
+		file_url: videoUrl,
+		description: caption, 
+	};
 
-		await autopost(randomVideoUrl, randomCaption);
+	try {
+		const videoResponse = await axios.post('https://graph-video.facebook.com/me/videos', videoData);
+
+		if (videoResponse.status === 200 && videoResponse.data.id) {
+			const videoId = videoResponse.data.id;
+			const postData = {
+				attached_media: [{ media_fbid: videoId }],
+				access_token: accessToken,
+			};
+
+			const response = await axios.post('https://graph.facebook.com/me/feed', postData);
+
+			if (response.status === 200) {
+				console.log(`Posted second video to your timeline successfully.`);
+			} else {
+				console.error(`Failed to post second video to your timeline.`);
+			}
+		} else {
+			console.error('Failed to upload the second video.');
+		}
+	} catch (error) {
+		console.error(`Error posting second video to timeline:`, error.response.data);
+	}
 };
 
-cron.schedule('*/10 * * * *', async () => {
-		const currentTime = Date.now();
-		if (currentTime - lastMessageTime < minInterval) {
-				console.log("Skipping message due to rate limit");
-				return;
+const autopostWithThirdVideo = async (videoUrl, caption) => {
+	const videoData = {
+		access_token: accessToken,
+		file_url: videoUrl,
+		description: caption,
+	};
+
+	try {
+		const videoResponse = await axios.post('https://graph-video.facebook.com/me/videos', videoData);
+
+		if (videoResponse.status === 200 && videoResponse.data.id) {
+			const videoId = videoResponse.data.id;
+			const postData = {
+				attached_media: [{ media_fbid: videoId }],
+				access_token: accessToken,
+			};
+
+			const response = await axios.post('https://graph.facebook.com/me/feed', postData);
+
+			if (response.status === 200) {
+				console.log(`Posted third video to your timeline successfully.`);
+			} else {
+				console.error(`Failed to post third video to your timeline.`);
+			}
+		} else {
+			console.error('Failed to upload the third video.');
 		}
+	} catch (error) {
+		console.error(`Error posting third video to timeline:`, error.response.data);
+	}
+};
 
-		const now = new Date();
-		const currentHour = now.getUTCHours() + 8; // Adjust for your timezone
-		const currentMinute = now.getUTCMinutes();
-		const currentSecond = now.getUTCSeconds();
 
-		const targetTimes = [
-				{ hour: 13, minute: 0, second: 0 }, // 1:00 PM
-				{ hour: 15, minute: 0, second: 0 }, // 3:00 PM
-				{ hour: 18, minute: 30, second: 0 } // 6:30 PM
-		];
+setInterval(() => {
+	const now = new Date();
+	const currentHour = now.getUTCHours() + 8; 
+	const currentMinute = now.getUTCMinutes();
+	const currentSecond = now.getUTCSeconds();
 
-		for (let i = 0; i < targetTimes.length; i++) {
-				const targetTime = targetTimes[i];
-				if (compareTimes(currentHour, currentMinute, currentSecond, targetTime)) {
-						await autopost(videoUrls[i], captions[i]);
-						break;
-				}
-		}
-}, {
-		scheduled: true,
-		timezone: "Asia/Manila"
-});
+	const afternoonTime1 = { hour: 13, minute: 0, second: 0 }; 
+	const afternoonTime2 = { hour: 15, minute: 0, second: 0 }; 
+	const eveningTime = { hour: 18, minute: 30, second: 0 }; 
+
+	const isAfternoon1 = compareTimes(currentHour, currentMinute, currentSecond, afternoonTime1);
+	const isAfternoon2 = compareTimes(currentHour, currentMinute, currentSecond, afternoonTime2);
+	const isEvening = compareTimes(currentHour, currentMinute, currentSecond, eveningTime);
+
+	if (isAfternoon1) {
+		autopostWithVideo(videoUrl, caption);
+	}
+
+	if (isAfternoon2) {
+		autopostWithSecondVideo(videoUrl2, caption2);
+	}
+
+	if (isEvening) {
+		autopostWithThirdVideo(videoUrl3, caption3);
+	}
+}, 1000);
 
 function compareTimes(currentHour, currentMinute, currentSecond, targetTime) {
-    return (
-        currentHour === targetTime.hour &&
-        currentMinute === targetTime.minute &&
-        currentSecond === targetTime.second
-    );
+	return (
+		currentHour === targetTime.hour &&
+		currentMinute === targetTime.minute &&
+		currentSecond === targetTime.second
+	);
 }
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
@@ -427,7 +393,7 @@ app.listen(port, () => {
 ⣿⡟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⠃⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱
+▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱
 
 ███████╗██╗░░░██╗░█████╗░██╗░░██╗
 ██╔════╝██║░░░██║██╔══██╗██║░██╔╝
@@ -441,7 +407,25 @@ app.listen(port, () => {
 ░╚████╔╝░██║░░██║██║░░░██║
 ░░╚██╔╝░░██║░░██║██║░░░██║
 ░░░██║░░░╚█████╔╝╚██████╔╝
-░░░╚═╝░░░░╚════╝░░╚═════╝░ ${port}`);
+░░░╚═╝░░░░╚════╝░░╚═════╝░ 
+
+"✖ [░░░░░░░░░░░░░░░]",
+"✖ [■░░░░░░░░░░░░░░]",
+"✖ [■■░░░░░░░░░░░░░]",
+"✖ [■■■░░░░░░░░░░░░]",
+"✖ [■■■■░░░░░░░░░░░]",
+"✖ [■■■■■░░░░░░░░░░]",
+"✖ [■■■■■■░░░░░░░░░]",
+"✖ [■■■■■■■░░░░░░░░]",
+"✖ [■■■■■■■■░░░░░░░]",
+"✖ [■■■■■■■■■░░░░░░]",
+"✖ [■■■■■■■■■■░░░░░]",
+"✖ [■■■■■■■■■■■░░░░]",
+"✖ [■■■■■■■■■■■■░░░]",
+"✖ [■■■■■■■■■■■■■░░]",
+"✖ [■■■■■■■■■■■■■■░]",
+"✖ [■■■■■■■■■■■■■■■]"
+${port}`);
 });
 process.on('unhandledRejection', (reason) => {
 	console.error('Unhandled Promise Rejection:', reason);
