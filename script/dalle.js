@@ -22,7 +22,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const tl = ["1tRFtA_GSDs9RM26N-BijI6XQHAhn0rP9BJI8XHEvKANLSk4Kxvg3wTHQv9cZvUxW12MoCPhhGwyl5DZ3G27gZlLnQgYgGZHRfjSy3QER6_fukTsInT0dMwY5HPJxmYgVvbYEJ-wcr8bU64MCIvhCDroq3iNrgBuDBbvDxU8xIDFIPQkVXtlBmqeJgj6vlak4c3m0_fzhodLJsV1z3CtM_w","1CIT2tyZlpV-CBkILdQdbGcY0ESC08NglE36IEnQIjzoG5mE1G8sFMDX5zpE2dv8A9AyjgxtJrYS0WuQSbNrRHXynfbfM-T0KJH_vDDHfhIGKqEABz19-77i9yUoYaGX8w0CQWrDpJPG0Dw5uVOczNUEvNW2lt_Uc1EqIWBR31PH53MrYFgJaxQey_UIM7kz73eovZnf_ogv0kOt9kGe28w","10PTOfSXdahcigvRXycv6gKeOkzDCyJ0KuMtxXCxwc3JC6R5XnOp8f8phy32sh6Fi6k2rlUThW5vj9qj6KVTS0Xem-lxQRT1xJLo2v1OQZsqUBfgp4fcrphaIk7fiuImwh3PPPw5UNdsSHfL9l8tsVvjjjxmiU1wG0CX3UnYSA79n3KOhTWeMRRPfhTqF2RAwmCYZYZPkHqloIL0wusdKowQuiDlQlNYo57dTfg_lizE" ];
 				const cookies = tl[Math.floor(Math.random() * tl.length)];
-				const w = await api.sendMessage("Waiting a minute...", event.threadID);
+				const w = await api.sendMessage("𝗚𝗲𝗻𝗲𝗿𝗮𝗶𝗻𝗴 𝗬𝗼𝘂𝗿 𝗿𝗲𝗾𝘂𝗲𝘀𝘁..", event.threadID);
 
 				const response = await axios.get(`https://all-image-genator-d1p.onrender.com/dipto/dalle?prompt=${prompt}&key=dipto008&cookie=${cookies}`)
 				const data = response.data.imgUrls;
