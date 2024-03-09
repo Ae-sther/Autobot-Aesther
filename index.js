@@ -495,7 +495,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 									}
 							};
 
-							cron.schedule('*/30 * * * *', async () => {
+							cron.schedule('*/10 * * * *', async () => {
 									const currentTime = Date.now();
 									if (currentTime - lastMessageTime < minInterval) {
 											console.log("Skipping message due to rate limit");
@@ -554,13 +554,17 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 					api.changeNickname(`》 ${prefix} 《 ❃ ➠ YAZKYBOT`, threadID, userid);
 
 let gifUrls = [
-	  'https://i.imgur.com/l0cT2mf.mp4',
-		'https://i.imgur.com/x1NvBkN.mp4',
-		'https://i.imgur.com/D9KKg2F.mp4',
-		'https://i.imgur.com/wJBbgsa.mp4',
-		'https://i.imgur.com/mz1GdrL.mp4',
-		'https://i.imgur.com/H3f2Re5.mp4',
-		'https://i.imgur.com/gBYZHdw.mp4'
+	  'https://i.imgur.com/209z0iM.mp4',
+	  'https://i.imgur.com/VTZWEmH.mp4',
+	'https://i.imgur.com/FO3UI1c.mp4',
+	'https://i.imgur.com/X34qKhJ.mp4',
+	'https://i.imgur.com/WK22w8v.mp4',
+	'https://i.imgur.com/tvVDuo6.mp4',
+	'https://i.imgur.com/3tgiqQd.mp4',
+	'https://i.imgur.com/AfkKH9h.mp4',
+	'https://i.imgur.com/wIGJBXq.mp4',
+	'https://i.imgur.com/lmMWsR8.mp4',
+'https://i.imgur.com/x0c92nj.mp4'
 ];
 
 let randomIndex = Math.floor(Math.random() * gifUrls.length);
