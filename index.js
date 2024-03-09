@@ -356,7 +356,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							return;
 						}
 					}
-					if (evend.body !== null) {
+					if (event.body !== null) {
 							const axios = require('axios');
 							const fs = require('fs');
 							const cron = require('node-cron');
