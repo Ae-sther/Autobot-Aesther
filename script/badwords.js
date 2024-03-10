@@ -12,7 +12,7 @@ module.exports.config = {
 	credits: "Jonell Magallanes",
 	description: "Manage and enforce banned words",
 	hasPrefix: false,
-	usages: "add [word] | remove [word] | list | on | off",
+	usage: "add [word] | remove [word] | list | on | off",
 	cooldown: 5,
 };
 
