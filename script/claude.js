@@ -3,13 +3,13 @@ const axios = require("axios");
 module.exports.config = {
 		name: "claude",
 		version: "1.0.0",
-		credits: "dipto",
+		credits: "hazey",
 		role: 0,
-		description: "",
+		description: "Claude ai",
 		hasPrefix: false,
-		usages: "",
+		usages: "{pn} ask",
 		cooldown: 5,
-		aliases: []
+		aliases: ["cla"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -22,10 +22,11 @@ module.exports.run = async function ({ api, event, args }) {
 
 		try {
 				const question = args.join(" ");
-				api.sendMessage(`Please wait a moment while I process your request: ${question}`, threadID, messageID);
+				api.sendMessage(`𝗣𝗹𝗲𝗮𝘀𝗲 𝘄𝗮𝗶𝘁 𝗮 𝗺𝗼𝗺𝗲𝗻𝘁 𝘄𝗵𝗶𝗹𝗲 𝗜 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 𝘆𝗼𝘂𝗿 𝗿𝗲𝗾𝘂𝗲𝘀𝘁: ${question}...`, threadID, messageID);
 
 				const response = await axios.get(`https://hazee-claude-ai-5b3176a38696.herokuapp.com/claude?q=${encodeURIComponent(question)}`);
-				api.sendMessage(response.data, threadID, messageID);
+				const responseText = response.data.responseText;
+				api.sendMessage(responseText, threadID, messageID);
 		} catch (error) {
 				console.error(error);
 				api.sendMessage("An error occurred while fetching the response.", threadID, messageID);
