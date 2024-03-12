@@ -10,8 +10,11 @@ body {
 	   background: transparent;
 	   backdrop-filter: blur(10px);
 		 border-radius: 10px;
-		 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		 padding: 20px;
+	   box-shadow: 0 0 .2rem #fff,0 0 .2rem #fff, 0 0 2rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.8rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe;
 		 margin-top: 20px;
 		 margin-bottom: 20px;
 	  outline: 2px solid #FFFFFF;
@@ -42,14 +45,13 @@ body {
 		 resize: none;
 }
  .btn-primary {
-		 background-color: #007bff;
+		 background-color: #00ff00;
 		 border: 1px solid #007bff;
-	   outline: 2px solid #FFFFFF;
+	   color: #261a1a;
 }
  .btn-primary:hover {
-		 background-color: #0056b3;
+		 background-color: #76d674;
 		 border: 1px solid #0056b3;
-	   outline: 2px solid #FFFFFF;
 }
  .success-message {
 		 color: green;
