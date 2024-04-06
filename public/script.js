@@ -7,10 +7,6 @@ let Commands = [{
 	'handleEvent': []
 }];
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-
 function measurePing() {
 	var xhr = new XMLHttpRequest();
 	var startTime, endTime;
