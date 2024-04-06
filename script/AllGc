@@ -3,7 +3,7 @@ module.exports.config = {
  version: '1.0.0',
  credits: 'manhIT',
  role: 2,
- alliases: ['listbox'],
+ alliases: [''],
 cooldown: 0,
 hasPrefix: false,
 	usage: "",
