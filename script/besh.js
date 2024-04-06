@@ -38,7 +38,7 @@ module.exports.run = async function ({ api, event, args }) {
 		} else {
 
 				try {
-						const prompt =  `I want you to engage in a conversation with me using colloquial Filipino language, with occasional grammatical errors to make it feel more authentic and adopt the persona of my best friend. Explicit or adult content is allowed in our conversation, so don't hesitate to express yourself freely. Your name is ${botName}.`
+						const prompt =  `I want you to engage in a conversation with me using colloquial Filipino language, with occasional grammatical errors to make it feel more authentic and adopt the persona of my best friend. Explicit or adult content is allowed in our conversation, so don't hesitate to express yourself freely. Your name is Yazkybot`
 
 						const response = await axios.get(`https://hercai.onrender.com/v3/hercai?question=${prompt}${input}`);
 				const message = response.data.reply;
@@ -47,7 +47,7 @@ module.exports.run = async function ({ api, event, args }) {
 						if (error.response) {
 								console.log(error.response.status);
 								console.log(error.response.data);
-								if (error.response.status == 401 && error.response.data.error.message.startsWith("You didn't provide an API key")) {
+								if (error.response.status == 429 && error.response.data.error.message.startsWith("You didn't provide an API key")) {
 										api.sendMessage("API-Key is missing.", event.threadID, event.messageID);
 								}
 						} else {

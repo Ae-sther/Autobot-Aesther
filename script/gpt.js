@@ -1,45 +1,30 @@
-const axios = require('axios');
+const { get } = require('axios');
 
 module.exports.config = {
-		name: "gpt4",
-		version: "1.0.0",
-		role: 0,
-		credits: "api by jerome",//api by jonell
-		description: "Gpt architecture",
-		hasPrefix: false,
-		aliases: ["gpt"],
-		cooldown: 5,
+  name: 'gpt',
+  credits: "cliff",
+  version: '1.0.0',
+  role: 0,
+  aliases: ["Gpt"],
+  cooldown: 0,
+  hasPrefix: false,
+  usage: "",
 };
 
 module.exports.run = async function ({ api, event, args }) {
-		try {
-				const { messageID, messageReply } = event;
-				let prompt = args.join(' ');
+  const question = args.join(' ');
+  function sendMessage(msg) {
+    api.sendMessage(msg, event.threadID, event.messageID);
+  }
 
-				if (messageReply) {
-						const repliedMessage = messageReply.body;
-						prompt = `${repliedMessage} ${prompt}`;
-				}
+  const url = "https://hercai.onrender.com/v3/hercai";
 
-				if (!prompt) {
-						return api.sendMessage('Please provide a prompt to generate a text response.\nExample: GPT4 What is the meaning of life?', event.threadID, messageID);
-				}
+  if (!question) return sendMessage("Please provide a question.");
 
-				const gpt4_api = `http://fi3.bot-hosting.net:20265/api/gpt?question=${encodeURIComponent(prompt)}`;
-
-				const response = await axios.get(gpt4_api);
-
-				if (response.data && response.data.reply) {
-						const generatedText = response.data.reply;
-						const requestNumber = response.data.requestNumber;
-
-						api.sendMessage(`${generatedText}\n\n📝 Request Number: ${requestNumber}`, event.threadID, messageID);
-				} else {
-						console.error('API response did not contain expected data:', response.data);
-						api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Response data: ${JSON.stringify(response.data)}`, event.threadID, messageID);
-				}
-		} catch (error) {
-				console.error('Error:', error);
-				api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Error details: ${error.message}`, event.threadID, event.messageID);
-		}
+  try {
+    const response = await get(`${url}?question=${encodeURIComponent(question)}`);
+    sendMessage(response.data.reply);
+  } catch (error) {
+    sendMessage("An error occurred: " + error.message);
+  }
 };

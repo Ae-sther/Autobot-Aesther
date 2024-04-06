@@ -1,7 +1,7 @@
 const { get } = require('axios');
 const fs = require('fs');
 
-let url = "https://ai-tools.replit.app";
+let url = "https://deku-rest-api.replit.app";
 let f = __dirname+'/cache/sdxl.png';
 
 module.exports.config = {

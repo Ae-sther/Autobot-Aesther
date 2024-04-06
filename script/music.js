@@ -4,7 +4,7 @@ module.exports.config = {
 	version: "1.0.0",
 	credits: "cliff",
 	role: 0,
-	aliases: ['play'],
+	aliases: ['m'],
 	cooldown: 0,
 	hasPrefix: false,
 	usage: "",

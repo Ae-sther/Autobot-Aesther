@@ -24,7 +24,7 @@ module.exports.run = async function({ api, event, args }) {
 
 		api.sendMessage("⏱️ | Searching, please wait...", event.threadID);
 
-		const response = await axios.get(`https://cc-project-apis-jonell-magallanes.onrender.com/api/tiktok/searchvideo?keywords=${encodeURIComponent(searchQuery)}`);
+		const response = await axios.get(`https://jonellccapisproject-e1a0d0d91186.herokuapp.com/api/tiktok/searchvideo?keywords=${encodeURIComponent(searchQuery)}`);
 		const videos = response.data.data.videos;
 
 		if (!videos || videos.length === 0) {

@@ -2,37 +2,48 @@ const { get } = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-let url = "https://ai-tools.replit.app";
-let f = path.join(__dirname, 'cache', 'emi.png');
+const url = "https://deku-rest-api.replit.app";
+const cacheDir = path.join(__dirname, 'cache');
+const filePath = path.join(cacheDir, 'emi.png');
 
 module.exports.config = {
-		name: "emi",
-		version: "1.0.0",
-		role: 0,
-	  hasPrefix: false,
-		credits: "Deku",
-		description: "Generate image in emi",
-		usages: "[prompt]",
-		cooldown: 5,
-		aliases: ["em"]
+	name: "emi",
+	version: "1.0.0",
+	role: 0,
+	hasPrefix: false,
+	credits: "Deku",
+	description: "Generate image in emi",
+	usages: "[prompt]",
+	cooldown: 5,
+	aliases: ["em"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
-		function r(msg) {
-				api.sendMessage(msg, event.threadID, event.messageID);
-		}
+	function sendMessage(msg) {
+		api.sendMessage(msg, event.threadID, event.messageID);
+	}
 
-		if (!args[0]) return r('Missing prompt!');
+	if (!args[0]) return sendMessage('Missing prompt!');
 
-		const a = args.join(" ");
-		if (!a) return r('Missing prompt!');
-		try {
-				const d = (await get(url + '/emi?prompt=' + encodeURIComponent(a), {
-						responseType: 'arraybuffer'
-				})).data;
-				fs.writeFileSync(f, Buffer.from(d, "utf8"));
-				return r({ attachment: fs.createReadStream(f) });
-		} catch (e) {
-				return r(e.message);
+	const prompt = args.join(" ");
+	if (!prompt) return sendMessage('Missing prompt!');
+
+	try {
+		const response = await get(`${url}/emi?prompt=${encodeURIComponent(prompt)}`, {
+			responseType: 'arraybuffer'
+		});
+
+		if (response.status === 200) {
+			if (!fs.existsSync(cacheDir)) {
+				fs.mkdirSync(cacheDir, { recursive: true });
+			}
+			fs.writeFileSync(filePath, Buffer.from(response.data, "utf8"));
+			return sendMessage({ attachment: fs.createReadStream(filePath) });
+		} else {
+			return sendMessage("Failed to generate image.");
 		}
+	} catch (error) {
+		console.error('Error:', error);
+		return sendMessage("An error occurred while processing your request.");
+	}
 };

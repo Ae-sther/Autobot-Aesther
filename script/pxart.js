@@ -2,7 +2,7 @@ const { get } = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-let url = "https://ai-tools.replit.app";
+let url = "https://deku-rest-api.replit.app";
 let cacheDir = path.join(__dirname, 'cache');
 let filePath = path.join(cacheDir, 'pixart.png');
 
@@ -39,7 +39,7 @@ module.exports.run = async function({ api, event, args }) {
 		}
 
 		try {
-				const response = await get(url + '/pixart', {
+				const response = await get(url + '/pixart2', {
 						params: {
 								prompt: prompt,
 								styles: style

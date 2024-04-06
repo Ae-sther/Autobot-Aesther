@@ -39,7 +39,7 @@ module.exports.run = async function({ api, event, args }) {
 	}
 
 	try {
-		const resp = await axios.get(`http://fi3.bot-hosting.net:20284/stalk?uid=${id}`);
+		const resp = await axios.get(`https://eurix-api.replit.app/info?uid=${id}`);
 		var name = resp.data.name;
 		var link_profile = resp.data.link;
 		var uid = resp.data.id;
@@ -58,7 +58,7 @@ module.exports.run = async function({ api, event, args }) {
 		var locale = resp.data.locale || "No data!";
 		var hometown = !!resp.data.hometown ? resp.data.hometown.name : "No Hometown";
 		var cover = resp.data.source || "No Cover photo";
-		var avatar = `https://graph.facebook.com/${id}/picture?width=1500&height=1500&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
+		var avatar = `https://graph.facebook.com//picture?width=1500&height=1500&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
 
 		//callback
 		let cb = function() {

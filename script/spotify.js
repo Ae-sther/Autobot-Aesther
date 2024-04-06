@@ -14,7 +14,7 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, event, args }) {
 		const listensearch = encodeURIComponent(args.join(" "));
-		const apiUrl = `https://jonellccapisproject-e1a0d0d91186.herokuapp.com/api/spotify?search=${listensearch}`;
+		const apiUrl = `https://jonellccapisproject-e1a0d0d91186.herokuapp.com/api/spotify?search=prompt=${listensearch}`;
 
 		if (!listensearch) return api.sendMessage("Please provide the name of the song you want to search.", event.threadID, event.messageID);
 

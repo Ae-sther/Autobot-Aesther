@@ -5,7 +5,7 @@ module.exports.config = {
 	name: "war",
 	version: "1.0.0",
 	role: 2,
-	credits: "Zach Khalen Kausaran",
+	credits: "cliff",
 	description: "War nát cái boxchat",
 	hasPrefix: false,
 	usages: "war đấm chất",
