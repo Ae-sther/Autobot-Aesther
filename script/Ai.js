@@ -1,36 +1,29 @@
-/* 
-If you encounter any errors, please give me feedback. Contact me on facebook https://facebook.com/joshg101
-*/
-
-const { get } = require('axios');
-let url = "https://deku-rest-api.replit.app";
+const axios = require('axios');
 
 module.exports.config = {
-	name: "Ai",
-	version: "1.0.0",
-	role: 0,
-	hasPrefix: false,
-	credits: "Deku",
-	description: "Talk to AI with continuous conversation.",
-	aliases:  [],
-	usages: "[prompt]",
-	cooldown: 0,
+		name: "Ai",
+		version: 1.0,
+		credits: "OtinXSandip",
+		description: "AI",
+		hasPrefix: false,
+		usages: "{pn} [prompt]",
+		aliases: ["megan","AE"],
+		cooldown: 0,
 };
 
-module.exports.run = async function({ api, event, args }) {
-	function sendMessage(msg) {
-		api.sendMessage(msg, event.threadID, event.messageID);
-	}
+module.exports.run = async function ({ api, event, args }) {
+		try {
+				const prompt = args.join(" ");
+				if (!prompt) {
+						await api.sendMessage("Hey I'm your virtual assistant, ask me a question.", event.threadID);
+						return;
+				}
 
-	if (!args[0]) return sendMessage('Please provide a question first.');
+				const response = await axios.get(`https://sandipbaruwal.onrender.com/gpt?prompt=${encodeURIComponent(prompt)}`);
+				const answer = response.data.answer;
 
-	const prompt = args.join(" ");
-
-	try {
-		const response = await get(`${url}/gpt3?prompt=${encodeURIComponent(prompt)}&uid=${event.senderID}`);
-		const data = response.data;
-		return sendMessage(data);
-	} catch (error) {
-		return sendMessage(error.message);
-	}
-}
+				await api.sendMessage(answer, event.threadID);
+		} catch (error) {
+				console.error("Error:", error.message);
+		}
+};
