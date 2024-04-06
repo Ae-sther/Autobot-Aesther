@@ -1,32 +1,29 @@
-const { get } = require('axios');
+const axios = require('axios');
 
 module.exports.config = {
 		name: "ai2",
-		version: "1.0.0",
-		role: 0,
+		version: 1.0,
+		credits: "OtinXSandip",
+		description: "AI",
 		hasPrefix: false,
-		credits: "Hazey",
-		description: "Talk to AI with continuous conversation.",
-		aliases:  [],
-		usages: "[prompt]",
+		usages: "{pn} [prompt]",
+		aliases: [],
 		cooldown: 0,
 };
 
-module.exports.run = async function({ api, event, args }) {
-		function sendMessage(msg) {
-				api.sendMessage(msg, event.threadID, event.messageID);
-		}
-
-		if (!args[0]) return sendMessage('Please provide a question first.');
-
-		const prompt = args.join(" ");
-		const url = `https://hazee-gpt4.onrender.com/gpt?content=${encodeURIComponent(prompt)}`;
-
+module.exports.run = async function ({ api, event, args }) {
 		try {
-				const response = await get(url);
-				const data = response.data;
-				return sendMessage(data.gpt);
+				const prompt = args.join(" ");
+				if (!prompt) {
+						await api.sendMessage("j'écoute.", event.threadID);
+						return;
+				}
+
+				const response = await axios.get(`https://sandipbaruwal.onrender.com/gpt?prompt=${encodeURIComponent(prompt)}`);
+				const answer = response.data.answer;
+
+				await api.sendMessage(answer, event.threadID);
 		} catch (error) {
-				return sendMessage(error.message);
+				console.error("Error:", error.message);
 		}
-}
+};
