@@ -1,23 +1,86 @@
 body {
-		 padding: 20px;
-		 background-image: url("https://i.imgur.com/5OODohI.jpeg");
-		 background-size: cover;
-		 font-family: 'Poppins', sans-serif;
-	   border-radius: 10px;
+		margin: auto;
+		padding: 20px;
+		font-family: -apple-system, 'Poppins', BlinkMacSystemFont, sans-serif;
+		overflow: auto;
+		background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+		animation: gradient 15s ease infinite;
+		background-size: 400% 400%;
+		background-attachment: fixed;
 }
- .container {
+
+@keyframes gradient {
+		0% {
+				background-position: 0% 0%;
+		}
+		50% {
+				background-position: 100% 100%;
+		}
+		100% {
+				background-position: 0% 0%;
+		}
+}
+
+.wave {
+		background: rgb(255 255 255 / 25%);
+		border-radius: 1000% 1000% 0 0;
+		position: fixed;
+		width: 200%;
+		height: 12em;
+		animation: wave 10s -3s linear infinite;
+		transform: translate3d(0, 0, 0);
+		opacity: 0.8;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+		bottom: -1.25em;
+		animation: wave 18s linear reverse infinite;
+		opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+		bottom: -2.5em;
+		animation: wave 20s -1s reverse infinite;
+		opacity: 0.9;
+}
+
+@keyframes wave {
+		2% {
+				transform: translateX(1);
+		}
+
+		25% {
+				transform: translateX(-25%);
+		}
+
+		50% {
+				transform: translateX(-50%);
+		}
+
+		75% {
+				transform: translateX(-25%);
+		}
+
+		100% {
+				transform: translateX(1);
+		}
+}
+
+.container {
 	   color: #FFFF;
-	   background: transparent;
-	   backdrop-filter: blur(10px);
+	   background: #000000;
 		 border-radius: 10px;
 		 padding: 20px;
-	   box-shadow: 0 0 .2rem #fff,0 0 .2rem #fff, 0 0 2rem #bc13fe,
-            0 0 0.8rem #bc13fe,
-            0 0 2.8rem #bc13fe,
-            inset 0 0 1.3rem #bc13fe;
+	   box-shadow: 0 0 .2rem #fff,0 0 .2rem #fff, 0 0 2rem #1F51FF,
+            0 0 0.8rem #1F51FF,
+            0 0 2.8rem #1F51FF,
+            inset 0 0 1.3rem #1F51FF;
 		 margin-top: 20px;
 		 margin-bottom: 20px;
-	  outline: 2px solid #FFFFFF;
+	 outline: 2px solid #FFFFFF;
 }
  h1 {
 		 color: #FFFFFF;
@@ -146,7 +209,7 @@ div {
 
 video {
 	max-width: 100%;
-	max-height: 70%;
+	max-height: 40%;
 	margin-bottom: 20px;
 	cursor: default;
 	outline: 2px solid #FFFFFF;
@@ -169,15 +232,21 @@ to {
  }
 
 #video-container {
+	
 	width: 100%;
-	height: 70%;
+	height: 100%;
 	margin-bottom: 20px;
+	display: flex;
 }
 
 #video {
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 	 width: 100%;
 	 border-radius: 10px;
-	 height: 70%%;
+	 height: 100%;
 	 object-fit: cover;
 	 margin: auto;
 }
