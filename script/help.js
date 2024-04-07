@@ -79,28 +79,26 @@ module.exports.run = async function ({
 			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `\n\n❐𝗖𝗛𝗔𝗧𝗕𝗢𝗧 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧❍\n\n╬╬═════════════╬╬
-\n\n╭────────────❍`;
+			let helpMessage = `😗🍷\n\n『 Stanley bot 』\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────⟡`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────❍\t`;
+				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────⟡\t`;
 			}
-			helpMessage += '\n\n⏤͟͟͞͞𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧۞\n╬╬═════════════╬╬
-\n\n';
+			helpMessage += '\n╰──────────────⟡\n\n 『 Stan bot 🤖 』\n\n';
 			eventCommands.forEach((eventCommand, index) => {
-			helpMessage += `╭─────────────────╮\n |\t『 ${index + 1}.』  ${prefix}${eventCommand}\n╰─────────────────╯ \n\n`;
+				helpMessage += `╭──────────────⟡\n |『 ${index + 1} 』  ${prefix}${eventCommand}\n╰──────────────⟡\n`;
 			});
-			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
+			helpMessage += `\n📄 Page ${page}/${Math.ceil(commands.length / pages)}. To view the next page, type '${prefix}help page number'.\n🌟 To view information about a specific command, type '${prefix}help command name https://www.facebook.com/profile.php?id=100078426361784'.`;
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
 			const pages = 100;
-			let start = (page - 2) * pages;
+			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
+			let helpMessage = `Stan bot 🤖:\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
 				helpMessage += `\t${i + 1}. 『 ${prefix}${commands[i]} 』\n`;
 			}
-			helpMessage += '\n𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧:\n\n';
+			helpMessage += '\nStan Bot 🤖 :\n\n';
 			eventCommands.forEach((eventCommand, index) => {
 				helpMessage += `\t${index + 1}. 『 ${prefix}${eventCommand} 』\n`;
 			});
