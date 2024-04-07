@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 module.exports.config = {
-		name: "ai2",
+		name: "ai",
 		version: 1.0,
 		credits: "OtinXSandip",
 		description: "AI",
 		hasPrefix: false,
 		usages: "{pn} [prompt]",
-		aliases: [],
+		aliases: ["ai2","bot"],
 		cooldown: 0,
 };
 
@@ -15,7 +15,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const prompt = args.join(" ");
 				if (!prompt) {
-						await api.sendMessage("j'écoute.", event.threadID);
+						await api.sendMessage("-----🛟🧭----\nj'écoute.\n--------", event.threadID);
 						return;
 				}
 
