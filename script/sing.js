@@ -29,7 +29,7 @@ module.exports.run = async ({ api, event }) => {
  const song = data.join(" ");
 
  try {
-	api.sendMessage(`Finding "${song}". Please wait...`, event.threadID);
+	api.sendMessage(`𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 "${song}" 𝗬𝗢𝗨𝗥 𝗦𝗜𝗡𝗚 𝗪𝗔𝗜𝗧 ❗`, event.threadID);
 
 	const searchResults = await yts(song);
 	if (!searchResults.videos.length) {
@@ -63,7 +63,7 @@ module.exports.run = async ({ api, event }) => {
 	 }
 
 	 const message = {
-		body: `Here's your music, enjoy!🥰\n\nTitle: ${video.title}\nArtist: ${video.author.name}`,
+		body: `🎧|𝗬𝗢𝗨𝗥 𝗠𝗨𝗦𝗜𝗖 🔵 \n\n𝗧𝗶𝘁𝗹𝗲🧃: ${video.title}\n𝗔𝗿𝘁𝗶𝘀𝘁🎤: ${video.author.name}`,
 		attachment: fs.createReadStream(filePath)
 	 };
 
