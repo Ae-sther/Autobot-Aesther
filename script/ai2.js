@@ -15,7 +15,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const prompt = args.join(" ");
 				if (!prompt) {
-						await api.sendMessage("🏵𝐀𝐊𝐀𝐈🏵 \n\n 𝐀𝐒𝐊 𝐘𝐎𝐔𝐑 𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍......?", event.threadID);
+						await api.sendMessage("🟢𝐀𝐊𝐀𝐈⚪ \n\n 𝐀𝐒𝐊 𝐘𝐎𝐔𝐑 𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍......?", event.threadID);
 						return;
 				}
 
