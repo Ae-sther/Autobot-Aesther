@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	 <head>
-			<title>𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙀𝙍</title>
+			<title>AKAI</title>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -10,7 +10,7 @@
 	 </head>
 	 <body>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				 <a class="navbar-brand" href="#">𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙀𝙍 </a>
+				 <a class="navbar-brand" href="#"> AKAI</a>
 				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				 <span class="navbar-toggler-icon"></span>
 				 </button>
@@ -126,7 +126,7 @@
 	function farbschrift(){for(var b=0;b<Buchstabe.length;b++){document.all["a"+b].style.color=farben[b]}farbverlauf()}function string2array(b){Buchstabe=new Array();while(farben.length<b.length){farben=farben.concat(farben)}k=0;while(k<=b.length){Buchstabe[k]=b.charAt(k);k++}}function divserzeugen(){for(var b=0;b<Buchstabe.length;b++){document.write("<span id='a"+b+"' class='a"+b+"'>"+Buchstabe[b]+"</span>")}farbschrift()}var a=1;function farbverlauf(){for(var b=0;b<farben.length;b++){farben[b-1]=farben[b]}farben[farben.length-1]=farben[-1];setTimeout("farbschrift()",30)}var farbsatz=1;function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-0.0001))}setInterval("farbtauscher()",5000);
 
 	text=
-	"Join Us\n𝗖𝗵𝗮𝘁𝗕𝗼𝘁 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆 𝗟𝘁𝗱."
+	"Join Us\n𝗖𝗵𝗮𝘁𝗕𝗼𝘁 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆 𝙛𝙧."
 	string2array(text);
 	divserzeugen();
 	//document.write(text);
