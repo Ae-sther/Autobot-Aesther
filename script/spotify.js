@@ -16,10 +16,10 @@ module.exports.run = async function ({ api, event, args }) {
 		const listensearch = encodeURIComponent(args.join(" "));
 		const apiUrl = `https://jonellccapisproject-e1a0d0d91186.herokuapp.com/api/spotify?search=prompt=${listensearch}`;
 
-		if (!listensearch) return api.sendMessage("Please provide the name of the song you want to search.", event.threadID, event.messageID);
+		if (!listensearch) return api.sendMessage("𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝘁𝗵𝗲 𝗻𝗮𝗺𝗲 ❗.", event.threadID, event.messageID);
 
 		try {
-				api.sendMessage("🎵 | Searching for your music on Spotify. Please wait...", event.threadID, event.messageID);
+				api.sendMessage("🎧 | 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝗳𝗼𝗿 𝘆𝗼𝘂𝗿 𝗺𝘂𝘀𝗶𝗰 𝗼𝗻 𝗦𝗽𝗼𝘁𝗶𝗳𝘆. 𝗪𝗔𝗜𝗧  ▫▫▫▫▫▫ .", event.threadID, event.messageID);
 
 				const response = await axios.get(apiUrl);
 				const { platform, status, data } = response.data;
