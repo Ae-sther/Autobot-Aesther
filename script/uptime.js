@@ -43,7 +43,7 @@ module.exports.getUptime = (uptime) => {
 		const mins = Math.floor((uptime % 3600) / 60);
 		const seconds = Math.floor(uptime % 60);
 
-		return `\n━━━━━━━━━━━━━━━━━━━━━━━\n |  𝗨𝗣𝗧𝗜𝗠𝗘\n |  ${days} day(s),\n |  ${hours} hour(s),\n |  ${mins} minute(s),\n |  ${seconds} second(s)\n━━━━━━━━━━━━━━━━━━━━━━━`;
+		return `\n━━━━━━━━━━━━━━━━━\n | 💬 𝗨𝗣𝗧𝗜𝗠𝗘\n | ⛅ ${days} 𝗱𝗮𝘆(𝘀),\n | 🧑‍🏫 ${hours} 𝗵𝗼𝘂𝗿(𝘀),\n | ⏰ ${mins} 𝗺𝗶𝗻𝘂𝘁𝗲(𝘀),\n |  ${seconds} 👁️‍🗨️𝘀𝗲𝗰𝗼𝗻𝗱(𝘀)\n━━━━━━━━━━━━━━━━━━`;
 };
 
 module.exports.run = async ({ api, event }) => {
