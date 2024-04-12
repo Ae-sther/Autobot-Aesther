@@ -26,7 +26,7 @@ module.exports.run = async function({ api, event, args }) {
 
 		const prefix = "😐";
 		const CREATORLINK = "https://www.facebook.com/share/jxU3yXTKyuY4Wx35/?mibextid=A7sQZp";
-		const BOTCREATOR = "𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙔🚀";
+		const BOTCREATOR = "𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙔 fr🚀";
 		const BOTNAME = "🌱𝘼𝙆𝘼𝙄🌱";
 		const FILESOWNER = "AE";
 		const juswa = moment.tz("Asia/Manila").format("『D/MM/YYYY』 【HH:mm:ss】");
