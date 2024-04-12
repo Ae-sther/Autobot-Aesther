@@ -15,7 +15,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const prompt = args.join(" ");
 				if (!prompt) {
-						await api.sendMessage("Hey I'm your virtual assistant, ask me a question.", event.threadID);
+						await api.sendMessage("🌱𝘼𝙆𝘼𝙄🌱\n\n 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙔 𝘼 𝙑𝙊𝙏𝙍𝙀 𝙎𝙀𝙍𝙑𝙄𝘾𝙀 😺 ", event.threadID);
 						return;
 				}
 
