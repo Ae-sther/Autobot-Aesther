@@ -83,11 +83,11 @@ module.exports.run = async function ({
 			for (let i = start; i < Math.min(end, commands.length); i++) {
 				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────⟡\t`;
 			}
-			helpMessage += '\n╰──────────────⟡\n\n 『 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 🚀 』\n\n';
+			helpMessage += '\n╰──────────────🟢\n\n 『 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 🚀 』\n\n';
 			eventCommands.forEach((eventCommand, index) => {
-				helpMessage += `╭──────────────⟡\n |『 ${index + 1} 』  ${prefix}${eventCommand}\n╰──────────────⟡\n`;
+				helpMessage += `╭──────────────⚪\n |『 ${index + 1} 』  ${prefix}${eventCommand}\n╰──────────────🟢\n`;
 			});
-			helpMessage += `\𝐧📑 Page ${page}/${Math.ceil(commands.length / pages)}. 𝐓𝐨 𝐯𝐢𝐞𝐰 𝐭𝐡𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞, 𝐭𝐲𝐩𝐞 '${prefix}𝐡𝐞𝐥𝐩 𝐩𝐚𝐠𝐞 𝐧𝐮𝐦𝐛𝐞𝐫'.\n🌟 𝐓𝐨 𝐯𝐢𝐞𝐰 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 𝐚𝐛𝐨𝐮𝐭 𝐚 𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐜𝐨𝐦𝐦𝐚𝐧𝐝, 𝐭𝐲𝐩𝐞 '${prefix}𝐭𝐲𝐩𝐞 𝐡𝐞𝐥𝐩 𝐭𝐨 𝐬𝐞𝐞 𝐚𝐥𝐥 𝐜𝐦𝐝 𝐁𝐎𝐓 𝐋𝐈𝐍𝐊 : https://akai-9rco.onrender.com 𝐭𝐡𝐚𝐧𝐤 𝐟𝐨𝐫 𝐮𝐬𝐞 𝐀𝐊𝐀𝐈-𝐁𝐎𝐓 🧑‍🏫'.`;
+			helpMessage += `\𝐧📑 Page ${page}/${Math.ceil(commands.length / pages)}. 𝐓𝐨 𝐯𝐢𝐞𝐰 𝐭𝐡𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞, 𝐭𝐲𝐩𝐞 '${prefix}𝐡𝐞𝐥𝐩 𝐩𝐚𝐠𝐞 𝐧𝐮𝐦𝐛𝐞𝐫'.\n🟠 𝐓𝐨 𝐯𝐢𝐞𝐰 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 𝐚𝐛𝐨𝐮𝐭 𝐚 𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐜𝐨𝐦𝐦𝐚𝐧𝐝, 𝐭𝐲𝐩𝐞 '${prefix}𝐭𝐲𝐩𝐞 𝐡𝐞𝐥𝐩 𝐭𝐨 𝐬𝐞𝐞 𝐚𝐥𝐥 𝐜𝐦𝐝 𝐁𝐎𝐓 𝐋𝐈𝐍𝐊 : https://akai-9rco.onrender.com 𝐭𝐡𝐚𝐧𝐤 𝐟𝐨𝐫 𝐮𝐬𝐞 𝐀𝐊𝐀𝐈-𝐁𝐎𝐓 🧑‍🏫'.`;
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
