@@ -11,3 +11,5 @@
 # 𝙁𝘽 𝙇𝙄𝙉𝙆:https://www.facebook.com/more.sidibe.1?mibextid=JRoKG𝙞
 
 # 𝘿𝙄𝙏𝙀 𝘾𝙀 𝙌𝙐𝙀 𝙑𝙊𝙐𝙎 𝙑𝙊𝙐𝙇𝙀𝙕 💔🧑‍🦯
+
+# 𝙅𝙐𝙎𝙏 𝙐𝙉 𝘽𝙊𝙏 𝙋𝙊𝙐𝙍 𝙏𝙊𝙐𝙎 𝙊𝙠 
