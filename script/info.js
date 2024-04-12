@@ -25,8 +25,8 @@ module.exports.run = async function({ api, event, args, prefix, admin }) {
 		const uptimeString = `${years > 0 ? `${years} years ` : ''}${months > 0 ? `${months} months ` : ''}${weeks > 0 ? `${weeks} weeks ` : ''}${days % 7 > 0 ? `${days % 7} days ` : ''}${hours > 0 ? `${hours} hours ` : ''}${minutes > 0 ? `${minutes} minutes ` : ''}${seconds} seconds`;
 
 		const CREATORLINK = "https://www.facebook.com/share/jxU3yXTKyuY4Wx35/?mibextid=A7sQZp";
-		const BOTCREATOR = " 🪶𝙃𝘼𝘾𝙆𝘼𝙔🪶 ";
-		const BOTNAME = "𝙃𝙖𝙘𝙠𝙖𝙮 𝙗𝙤𝙩 ";
+		const BOTCREATOR = "𝗔𝗞𝗔𝗜";
+		const BOTNAME = "𝗔𝗞𝗔𝗜-𝗕𝗢𝗧";
 		const FILESOWNER = "Cid";
 		const juswa = moment.tz("Asia/Manila").format("『D/MM/YYYY』 【HH:mm:ss】");
 		const link = ["https://i.imgur.com/9LDVC57.mp4", "https://i.imgur.com/r7IxgiR.mp4", "https://i.imgur.com/J1jWubu.mp4", "https://i.imgur.com/DJylTiy.mp4", "https://i.imgur.com/v4mLGte.mp4", "https://i.imgur.com/uthREbe.mp4", "https://i.imgur.com/ee8fHna.mp4", "https://i.imgur.com/VffzOwS.mp4", "https://i.imgur.com/ci5nztg.mp4", "https://i.imgur.com/qHPeKDV.mp4", "https://i.imgur.com/Rkl5UmH.mp4",
@@ -82,18 +82,18 @@ module.exports.run = async function({ api, event, args, prefix, admin }) {
 
 		const callback = () => {
 				api.sendMessage({
-						body: `➢ Admin and Bot Information
+						body: `➢ 𝗔𝗱𝗺𝗶𝗻 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 🟢⚪
 
-❐ Bot Name: ${BOTNAME}
-❐ Bot Admin: 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 🏵
-❐ Bot Admin Link: https://www.facebook.com/${admin}
-❐ Bot Prefix: ${prefix}
-❐ Files Owner: ${FILESOWNER}
-❐ UPTIME ${uptimeString}
-❐ Today is: ${juswa} 
+⊰┄┄┄┄┄⊰🟢𝗕𝗼𝘁 𝗡𝗮𝗺𝗲: ${BOTNAME}
+⊰┄┄┄┄┄⊰⚪𝗕𝗼𝘁 𝗔𝗱𝗺𝗶𝗻: 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 🏵
+⊰┄┄┄┄┄⊰🟢 𝗕𝗼𝘁 𝗔𝗱𝗺𝗶𝗻 𝗟𝗶𝗻𝗸: https://www.facebook.com/${admin}
+⊰┄┄┄┄┄⊰⚪ 𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅: ${prefix}
+⊰┄┄┄┄┄⊰🟢 𝗙𝗶𝗹𝗲𝘀 𝗢𝘄𝗻𝗲𝗿: ${FILESOWNER}
+⊰┄┄┄┄┄┄⊰⚪𝗨𝗣𝗧𝗜𝗠𝗘 ${uptimeString}
+⊰┄┄┄┄┄┄⊰🟢𝗧𝗼𝗱𝗮𝘆 𝗶𝘀: ${juswa} 
 
-❐ Bot is running ${hours}:${minutes}:${seconds}.
-❐ Thanks for using my bot`,
+⊰┄┄┄┄┄⊰🟢𝗕𝗼𝘁 𝗶𝘀 𝗿𝘂𝗻𝗻𝗶𝗻𝗴 ${hours}:${minutes}:${seconds}.
+⊰┄┄┄┄┄┄⊰⚪ 𝗧𝗵𝗮𝗻𝗸𝘀 𝗳𝗼𝗿 𝘂𝘀𝗶𝗻𝗴 🟢𝗔𝗞𝗔𝗜-𝗕𝗢𝗧⚪`,
 						attachment: fs.createReadStream(__dirname + "/cache/owner_video.mp4")
 				}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/owner_video.mp4"));
 		};
