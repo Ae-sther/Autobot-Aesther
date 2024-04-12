@@ -24,7 +24,7 @@ module.exports.run = async function({ api, event, args, prefix, admin }) {
 		let seconds = Math.floor(time % 60);
 		const uptimeString = `${years > 0 ? `${years} years ` : ''}${months > 0 ? `${months} months ` : ''}${weeks > 0 ? `${weeks} weeks ` : ''}${days % 7 > 0 ? `${days % 7} days ` : ''}${hours > 0 ? `${hours} hours ` : ''}${minutes > 0 ? `${minutes} minutes ` : ''}${seconds} seconds`;
 
-		const CREATORLINK = "";
+		const CREATORLINK = "https://www.facebook.com/share/jxU3yXTKyuY4Wx35/?mibextid=A7sQZp";
 		const BOTCREATOR = " 🪶𝙃𝘼𝘾𝙆𝘼𝙔🪶 ";
 		const BOTNAME = "𝙃𝙖𝙘𝙠𝙖𝙮 𝙗𝙤𝙩 ";
 		const FILESOWNER = "Cid";
