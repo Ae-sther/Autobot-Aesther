@@ -79,9 +79,9 @@ module.exports.run = async function ({
 			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `⛔\n\n『 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 』\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────⟡`;
+			let helpMessage = `⛔\n\n『 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏 』\n\n♡  ∩_∩\n（„• ֊ •„)♡\n╭─∪∪───────────🟢`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────⟡\t`;
+				helpMessage += `\n├ 🟢 ${i + 1}   ${prefix}${commands[i]}\n├──────────────⚪\t`;
 			}
 			helpMessage += '\n╰──────────────🟢\n\n ⚪ 𝘼𝙆𝘼𝙄-𝘽𝙊𝙏  🟢\n\n';
 			eventCommands.forEach((eventCommand, index) => {
