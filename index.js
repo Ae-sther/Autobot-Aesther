@@ -534,7 +534,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`》 ${prefix} 《 🟢𝘼𝙆𝘼𝙄 𝘽𝙊𝙏 ⚪`, threadID, userid);
+					api.changeNickname(`{ ${prefix} { 🟢𝘼𝙆𝘼𝙄 𝘽𝙊𝙏 ⚪`, threadID, userid);
 
 let gifUrls = [
 		'https://i.imgur.com/209z0iM.mp4',
@@ -559,7 +559,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚🔸🔹🔸🔹", event.threadID, () => 
 						api.sendMessage({ 
-								body:`⚪𝘼𝙆𝘼𝙄🟢\n\n 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦📝 \n======>🟢 𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅: ${prefix}\n======>🫅 𝗔𝗱𝗺𝗶𝗻: ‹${admin}›\n======> 🔖 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗟𝗶𝗻𝗸: ‹https://www.facebook.com/${admin}›\n======>🧑‍🏫 𝗨𝘀𝗲 ${prefix}𝗵𝗲𝗹𝗽 𝘁𝗼 𝘀𝗲𝗲 𝗮𝗹𝗹 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 \n======>💬 𝗔𝗱𝗱𝗲𝗱 𝗯𝗼𝘁 𝗮𝘁: ⟨ ${time} ⟩〈 ${thu} 〉`, 
+								body:`⚪𝘼𝙆𝘼𝙄-𝗕𝗼𝘁🟢\n\n 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦📝 \n❍⊶⊷⊶⊷✶🟢 𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅: ${prefix}\n❍⊶⊷⊶⊷✶🫅 𝗔𝗱𝗺𝗶𝗻: ‹${admin}›\n❍⊶⊷⊶⊷✶ 🔖 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗟𝗶𝗻𝗸: ‹https://www.facebook.com/${admin}›\n❍⊶⊷⊶⊷✶🧑‍🏫 𝗨𝘀𝗲 ${prefix}𝗵𝗲𝗹𝗽 𝘁𝗼 𝘀𝗲𝗲 𝗮𝗹𝗹 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 \n❍⊶⊷⊶⊷✶💬 𝗔𝗱𝗱𝗲𝗱 𝗯𝗼𝘁 𝗮𝘁: ⟨ ${time} ⟩〈 ${thu} 〉`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
@@ -589,7 +589,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 												memLength.push(participantIDs.length - i++);
 												memLength.sort((a, b) => a - b);
 
-													(typeof threadID.customJoin == "undefined") ? msg = "🌟 HELLO!, {uName}\n┌────── ～●～ ──────┐\n----- Welcome to {threadName} -----\n└────── ～●～ ──────┘\nYou're the {soThanhVien} member of this group, please enjoy! 🥳♥" : msg = threadID.customJoin;
+													(typeof threadID.customJoin == "undefined") ? msg = "✨ 𝗛𝗘𝗟𝗟𝗢💬,🫅{uName}🫅\n╔══《✧》══╗\n❍⊶⊷⊶⊷✶ 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 {threadName} ❍⊶⊷⊶⊷✶\n╚══《✧》══╝\n 𝗬𝗼𝘂'𝗿𝗲 𝘁𝗵𝗲 {soThanhVien} 𝗺𝗲𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝘆𝗼𝘂 𝗺𝘂𝘀𝘁 𝘁𝗼 𝗿𝗲𝘀𝗽𝗲𝗰𝘁 𝗮𝗹𝗹 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 👩‍❤️‍👨" : msg = threadID.customJoin;
 													msg = msg
 														.replace(/\{uName}/g, nameArray.join(', '))
 														.replace(/\{type}/g, (memLength.length > 1) ? 'you' : 'Friend')
@@ -739,7 +739,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 
 																				console.log(`Sending message with file "${fileName}"...`);
 																				// Use the fs.promises version for file reading
-																				await api.sendMessage({ body: `𝖠𝗎𝗍𝗈 𝖽𝗈𝗐𝗇 𝖦𝗈𝗈𝗀𝗅𝖾 𝖣𝗋𝗂𝗏𝖾 𝖫𝗂𝗇𝗄 \n\n𝙵𝙸𝙻𝙴𝙽𝙰𝙼𝙴: ${fileName}\n\n𝗬𝗔𝗭𝗞𝗬 𝗕𝗢𝗧 𝟭.𝟬.𝟬𝘃`, attachment: fs.createReadStream(destPath) }, event.threadID);
+																				await api.sendMessage({ body: `𝖠𝗎𝗍𝗈 𝖽𝗈𝗐𝗇 𝖦𝗈𝗈𝗀𝗅𝖾 𝖣𝗋𝗂𝗏𝖾 𝖫𝗂𝗇𝗄 \n\n𝙵𝙸𝙻𝙴𝙽𝙰𝙼𝙴: ${fileName}\n\n 🟢𝗔𝗞𝗔𝗜 𝗕𝗢𝗧⚪𝘃2`, attachment: fs.createReadStream(destPath) }, event.threadID);
 
 																				console.log(`Deleting file "${fileName}"...`);
 																				await fs.promises.unlink(destPath);
