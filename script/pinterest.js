@@ -45,11 +45,11 @@ module.exports.run = async function({
   const time = new Date();
   const timestamp = time.toISOString().replace(/[:.]/g, "-");
   if (!input) {
-    api.sendMessage(`To get started, type Pinterest followed by the name of the image you are looking for, and the expected number of images.\n\nExample:\n\n${prefix}soyeon - 10`, event.threadID, event.messageID);
+    api.sendMessage(`𝗧𝗼 𝗴𝗲𝘁 𝘀𝘁𝗮𝗿𝘁𝗲𝗱, 𝘁𝘆𝗽𝗲 𝗣𝗶𝗻𝘁𝗲𝗿𝗲𝘀𝘁 𝗳𝗼𝗹𝗹𝗼𝘄𝗲𝗱 𝗯𝘆 𝘁𝗵𝗲 𝗻𝗮𝗺𝗲 𝗼𝗳 𝘁𝗵𝗲 𝗶𝗺𝗮𝗴𝗲 𝘆𝗼𝘂 𝗮𝗿𝗲 𝗹𝗼𝗼𝗸𝗶𝗻𝗴 𝗳𝗼𝗿, 𝗮𝗻𝗱 𝘁𝗵𝗲 𝗲𝘅𝗽𝗲𝗰𝘁𝗲𝗱 𝗻𝘂𝗺𝗯𝗲𝗿 𝗼𝗳 𝗶𝗺𝗮𝗴𝗲𝘀.\n\n𝗘𝘅𝗮𝗺𝗽𝗹𝗲:\n\n${prefix}DRACULA - 10`, event.threadID, event.messageID);
   } else {
     try {
       const key = input.substr(0, input.indexOf('-'));
-      api.sendMessage(`Searching for ${key}`, event.threadID, event.messageID);
+      api.sendMessage(`𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗢𝗙 🪄${key}🪄𝗜𝗠𝗔𝗚𝗘 𝗪𝗔𝗜𝗧 (ಠ⌣ಠ).....✨`, event.threadID, event.messageID);
       const len = input.split("-").pop() || 6
       const data = await getPinterest(key);
       let num = 0;
