@@ -33,7 +33,7 @@ module.exports.run = async ({
       let text = '';
       retrieve[0].forEach(item => (item[0]) ? text += item[0] : '');
       const fromLang = (retrieve[2] === retrieve[8][0][0]) ? retrieve[2] : retrieve[8][0][0];
-      api.sendMessage(`Translation: ${text}\n - Translated from ${fromLang} to ${lang}`, event.threadID, event.messageID);
+      api.sendMessage(`┏━━━━━━━━━━━━━┓\n\n❄️𝗧𝗿𝗮𝗻𝘀𝗹𝗮𝘁𝗶𝗼𝗻: ${text}\n - 𝗧𝗿𝗮𝗻𝘀𝗹𝗮𝘁𝗲𝗱 𝗳𝗿𝗼𝗺 ${fromLang} 𝘁𝗼 ${lang}\n\n┗━━━━━━━━━━━━━┛`, event.threadID, event.messageID);
     });
   } catch (error) {
     api.sendMessage(error.message, event.threadID, event.messageID);
