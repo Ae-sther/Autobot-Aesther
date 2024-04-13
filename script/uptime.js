@@ -43,7 +43,7 @@ module.exports.getUptime = (uptime) => {
 		const mins = Math.floor((uptime % 3600) / 60);
 		const seconds = Math.floor(uptime % 60);
 
-		return `\n━━━━━━━━━━━━━━━━━\n | 💬 𝗨𝗣𝗧𝗜𝗠𝗘\n | ⛅ ${days} 𝗱𝗮𝘆(𝘀),\n | 🧑‍🏫 ${hours} 𝗵𝗼𝘂𝗿(𝘀),\n | ⏰ ${mins} 𝗺𝗶𝗻𝘂𝘁𝗲(𝘀),\n |  ${seconds} 👁️‍🗨️𝘀𝗲𝗰𝗼𝗻𝗱(𝘀)\n━━━━━━━━━━━━━━━━━━`;
+		return `\n━━━━━━━━━━━━━━━━━\n | 💬 𝗨𝗣𝗧𝗜𝗠𝗘\n | ⛅ ${days} 𝗱𝗮𝘆(𝘀),\n | 🧑‍🏫 ${hours} 𝗵𝗼𝘂𝗿(𝘀),\n | ⏰ ${mins} 𝗺𝗶𝗻𝘂𝘁𝗲(𝘀),\n | 👁️‍🗨️ ${seconds} 𝘀𝗲𝗰𝗼𝗻𝗱(𝘀)\n━━━━━━━━━━━━━━━━━━`;
 };
 
 module.exports.run = async ({ api, event }) => {
@@ -58,7 +58,7 @@ module.exports.run = async ({ api, event }) => {
 
 		const timeStart = Date.now();
 		const uptimeMessage = module.exports.getUptime(uptimeSeconds);
-		const returnResult = `${uptimeMessage}\n | ❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n | ❖ RAM usage: ${module.exports.byte2mb(usage.memory)}\n | ❖ Cores: ${os.cpus().length}\n | ❖ Ping: ${Date.now() - timeStart}ms\n | ❖ Operating System Platform: ${osInfo.platform}\n | ❖ System CPU Architecture: ${osInfo.architecture}\n━━━━━━━━━━━━━━━━━━━━━━━`;
+		const returnResult = `${uptimeMessage}\n |💻  𝗖𝗽𝘂 𝘂𝘀𝗮𝗴𝗲: ${usage.cpu.toFixed(1)}%\n | 💿 𝗥𝗔𝗠 𝘂𝘀𝗮𝗴𝗲: ${module.exports.byte2mb(usage.memory)}\n | 🥂 𝗖𝗼𝗿𝗲𝘀: ${os.cpus().length}\n | 🅾️ 𝗣𝗶𝗻𝗴: ${Date.now() - timeStart}ms\n | 📲 𝗢𝗽𝗲𝗿𝗮𝘁𝗶𝗻𝗴 𝗦𝘆𝘀𝘁𝗲𝗺 𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺: ${osInfo.platform}\n | 🖥 𝗦𝘆𝘀𝘁𝗲𝗺 𝗖𝗣𝗨 𝗔𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗲: ${osInfo.architecture}\n━━━━━━━━━━━━━━━━━\n 🟢𝗔𝗞𝗔𝗜-𝗯𝗼𝘁⚪`;
 
 		await module.exports.saveStartTimestamp(startTime); 
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
