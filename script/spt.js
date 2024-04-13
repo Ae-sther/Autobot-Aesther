@@ -17,7 +17,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const { spotify, spotifydl } = require("betabotz-tools");
 				let q = args.join(" ");
-				if (!q) return api.sendMessage("[ ❗ ] - Missing title of the song", event.threadID, event.messageID);
+				if (!q) return api.sendMessage("⛔|𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗢𝗨𝗥 𝗦𝗜𝗡𝗚 𝗔𝗡𝗗 𝗟𝗬𝗥𝗜𝗖𝗦......🎧", event.threadID, event.messageID);
 
 				api.sendMessage("[ 🔍 ] Searching for “" + q + "” ...", event.threadID, async (err, info) => {
 						try {
@@ -36,9 +36,9 @@ module.exports.run = async function ({ api, event, args }) {
 								api.sendMessage(
 										{
 												body:
-														"·•———[ SPOTIFY DL ]———•·\n\n" + "Title: " + title + "\nLyrics:\n\n" +
+														"·ı𝗹𝗹ı𝗹𝗹ı 𝗦𝗣𝗢𝗧𝗜𝗙𝗬 𝗗𝗟 ı𝗹𝗹ı𝗹𝗹ı·\n\n" + "🔖𝗧𝗶𝘁𝗹𝗲: " + title + "\n 🏴‍☠️𝗟𝘆𝗿𝗶𝗰𝘀:\n\n" +
 														lyrics +
-														"\n\nYou can download this audio by clicking this link or paste it to your browser: " +
+														"\n\n 🧃|𝗬𝗼𝘂 𝗰𝗮𝗻 𝗱𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝘁𝗵𝗶𝘀 𝗮𝘂𝗱𝗶𝗼 𝗯𝘆 𝗰𝗹𝗶𝗰𝗸𝗶𝗻𝗴 𝘁𝗵𝗶𝘀 𝗹𝗶𝗻𝗸 𝗼𝗿 𝗽𝗮𝘀𝘁𝗲 𝗶𝘁 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗯𝗿𝗼𝘄𝘀𝗲𝗿: " +
 														result1.result,
 												attachment: fs.createReadStream(path),
 										},
