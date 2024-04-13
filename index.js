@@ -557,9 +557,9 @@ let gifPath = __dirname + '/cache/connected.mp4';
 axios.get(gifUrl, { responseType: 'arraybuffer' })
 		.then(response => {
 				fs.writeFileSync(gifPath, response.data); 
-				return api.sendMessage("𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚...", event.threadID, () => 
+				return api.sendMessage("𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚🔸🔹🔸🔹", event.threadID, () => 
 						api.sendMessage({ 
-								body:`𝘼𝙆𝘼𝙄🟢\n\n⚪ 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦! \n➭ Bot Prefix: ${prefix}\n➭ Admin: ‹${admin}›\n➭ Facebook: ‹https://www.facebook.com/${admin}›\n➭ Use ${prefix}help to view command details\n➭ Added bot at: ⟨ ${time} ⟩〈 ${thu} 〉`, 
+								body:`⚪𝘼𝙆𝘼𝙄🟢\n\n 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦📝 \n======>🟢 𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅: ${prefix}\n======>🫅 𝗔𝗱𝗺𝗶𝗻: ‹${admin}›\n======> 🔖 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗟𝗶𝗻𝗸: ‹https://www.facebook.com/${admin}›\n======>🧑‍🏫 𝗨𝘀𝗲 ${prefix}𝗵𝗲𝗹𝗽 𝘁𝗼 𝘀𝗲𝗲 𝗮𝗹𝗹 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 \n======>💬 𝗔𝗱𝗱𝗲𝗱 𝗯𝗼𝘁 𝗮𝘁: ⟨ ${time} ⟩〈 ${thu} 〉`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
