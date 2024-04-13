@@ -17,9 +17,9 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const { spotify, spotifydl } = require("betabotz-tools");
 				let q = args.join(" ");
-				if (!q) return api.sendMessage("⛔|𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗢𝗨𝗥 𝗦𝗜𝗡𝗚 𝗔𝗡𝗗 𝗟𝗬𝗥𝗜𝗖𝗦......🎧", event.threadID, event.messageID);
+				if (!q) return api.sendMessage("𝗜𝗡𝗗𝗜𝗤𝗨𝗘 𝗬𝗢𝗨𝗥 𝗔𝗥𝗧𝗜𝗦𝗧 𝗡𝗔𝗠𝗘 💭", event.threadID, event.messageID);
 
-				api.sendMessage("[ 🔍 ] Searching for “" + q + "” ...", event.threadID, async (err, info) => {
+				api.sendMessage("⛔| 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗢𝗨𝗥 𝗦𝗜𝗡𝗚 𝗔𝗡𝗗 𝗟𝗬𝗥𝗜𝗖𝗦 "{ + q + }" ....🎤", event.threadID, async (err, info) => {
 						try {
 								const r = await axios.get("https://lyrist.vercel.app/api/" + q);
 								const { lyrics, title } = r.data;
