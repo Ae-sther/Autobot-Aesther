@@ -534,20 +534,14 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`{ ${prefix} { 🟢𝘼𝙆𝘼𝙄 𝘽𝙊𝙏 ⚪`, threadID, userid);
+					api.changeNickname(`﹝${prefix﹞▪ シƬHƐᗩ©`, threadID, userid);
 
 let gifUrls = [
-		'https://i.imgur.com/209z0iM.mp4',
-		'https://i.imgur.com/VTZWEmH.mp4',
-	'https://i.imgur.com/FO3UI1c.mp4',
-	'https://i.imgur.com/X34qKhJ.mp4',
-	'https://i.imgur.com/WK22w8v.mp4',
-	'https://i.imgur.com/tvVDuo6.mp4',
-	'https://i.imgur.com/3tgiqQd.mp4',
-	'https://i.imgur.com/AfkKH9h.mp4',
-	'https://i.imgur.com/wIGJBXq.mp4',
-	'https://i.imgur.com/lmMWsR8.mp4',
-'https://i.imgur.com/x0c92nj.mp4'
+        "https://i.ibb.co/JHS1WNL/image.gif",
+        "https://i.ibb.co/ZV5NdyJ/image.gif",
+        "https://i.ibb.co/CzRr9GH/image.gif",
+        "https://i.ibb.co/9ZGVFSd/image.gif",
+        "https://i.ibb.co/mTQfnHF/image.gif"
 ];
 
 let randomIndex = Math.floor(Math.random() * gifUrls.length);
@@ -557,9 +551,9 @@ let gifPath = __dirname + '/cache/connected.mp4';
 axios.get(gifUrl, { responseType: 'arraybuffer' })
 		.then(response => {
 				fs.writeFileSync(gifPath, response.data); 
-				return api.sendMessage("𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚🔸🔹🔸🔹", event.threadID, () => 
+				return api.sendMessage("[🛅]𝗕𝗢𝗧 : シƬHƐᗩ©\n[🆔]𝗔𝗗𝗠𝗜𝗡 :https://www.facebook.com/thegodess.aesther\𝗻𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚....", event.threadID, () => 
 						api.sendMessage({ 
-								body:`⚪𝘼𝙆𝘼𝙄-𝗕𝗼𝘁🟢\n\n 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦📝 \n❍⊶⊷⊶⊷✶🟢 𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅: ${prefix}\n❍⊶⊷⊶⊷✶🫅 𝗔𝗱𝗺𝗶𝗻: ‹${admin}›\n❍⊶⊷⊶⊷✶ 🔖 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗟𝗶𝗻𝗸: ‹https://www.facebook.com/${admin}›\n❍⊶⊷⊶⊷✶🧑‍🏫 𝗨𝘀𝗲 ${prefix}𝗵𝗲𝗹𝗽 𝘁𝗼 𝘀𝗲𝗲 𝗮𝗹𝗹 𝗰𝗼𝗺𝗺𝗮𝗻𝗱 \n❍⊶⊷⊶⊷✶💬 𝗔𝗱𝗱𝗲𝗱 𝗯𝗼𝘁 𝗮𝘁: ⟨ ${time} ⟩〈 ${thu} 〉`, 
+								body:`𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦\n■■■■■ 100%\✦ 𝗣𝗙 : ${prefix}\n┏━━━━━━━━━┓\n🌸 ▪ [𝗔𝗨𝗧𝗢𝗕𝗢 𝗩𝟮]\n☁️ ▪ 𝙇𝙄𝙉𝙆: https://https://www.facebook.com/thegodess.aesther\n✦( ˘▽˘)っcontact 𝗔𝗗𝗠𝗜𝗡✦┗━━━━━━━━━┛`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
@@ -589,7 +583,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 												memLength.push(participantIDs.length - i++);
 												memLength.sort((a, b) => a - b);
 
-													(typeof threadID.customJoin == "undefined") ? msg = "✨ 𝗛𝗘𝗟𝗟𝗢💬,🫅{uName}🫅\n╔══《✧》══╗\n❍⊶⊷⊶⊷✶ 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 {threadName} ❍⊶⊷⊶⊷✶\n╚══《✧》══╝\n 𝗬𝗼𝘂'𝗿𝗲 𝘁𝗵𝗲 {soThanhVien} 𝗺𝗲𝗺𝗯𝗲𝗿 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 𝘆𝗼𝘂 𝗺𝘂𝘀𝘁 𝘁𝗼 𝗿𝗲𝘀𝗽𝗲𝗰𝘁 𝗮𝗹𝗹 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗼𝗳 𝘁𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽 👩‍❤️‍👨" : msg = threadID.customJoin;
+													(typeof threadID.customJoin == "undefined") ? msg = "✨ 𝗛𝗘𝗟𝗟𝗢  ${userName} 𝗪𝗘𝗟𝗖𝗢𝗠𝗘" : msg = threadID.customJoin;
 													msg = msg
 														.replace(/\{uName}/g, nameArray.join(', '))
 														.replace(/\{type}/g, (memLength.length > 1) ? 'you' : 'Friend')
@@ -600,7 +594,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 													let callback = function() {
 														return api.sendMessage({ body: msg, attachment: fs.createReadStream(__dirname + `/cache/come.jpg`), mentions }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/come.jpg`))
 													};
-												request(encodeURI(`https://api.popcat.xyz/welcomecard?background=https://i.ibb.co/SPntrcb/Picsart-24-02-21-11-31-58-712.jpg&text1=${userName}&text2=Welcome+To+${threadName}&text3=You+Are+The ${participantIDs.length}th+Member&avatar=https://i.postimg.cc/fW3dgJFs/Picsart-24-02-21-13-52-16-397.jpg`)).pipe(fs.createWriteStream(__dirname + `/cache/come.jpg`)).on("close", callback);
+												request(encodeURI(`https://api.popcat.xyz/welcomecard?background=https://i.postimg.cc/3x0qRZL7/1e825047a7a3ec880fad2eadcb685d12.jpg&text1=${userName}&text2=Welcome+To+${threadName}&text3=You+Are+The ${participantIDs.length}th+Member&avatar=https://i.postimg.cc/fW3dgJFs/Picsart-24-02-21-13-52-16-397.jpg`)).pipe(fs.createWriteStream(__dirname + `/cache/come.jpg`)).on("close", callback);
 																			}
 																		})
 																	}
@@ -621,11 +615,11 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 													const name = userInfo[leaverID].name;
 													const type = (event.author == event.logMessageData.leftParticipantFbId) ? "left the group." : "was kicked by Admin of the group";
 
-													const link = ["https://i.imgur.com/dVw3IRx.gif"];
+													const link = ["https://i.ibb.co/9ZGVFSd/image.gif"];
 													const gifPath = __dirname + "/cache/leave.gif";
 
 													// Assuming the file exists, send the message with the GIF
-													api.sendMessage({ body: `${name} ${type}, There are now ${participantIDs.length} members in the group, please enjoy!`, attachment: fs.createReadStream(gifPath) }, event.threadID);
+													api.sendMessage({ body: `➤ 😮 ${name} ${type},➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
 											});
 									});
 							}
@@ -668,7 +662,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 																}
 															}
 															if (event.body) {
-							const emojis = ['😀', '😳', '♥️', '😪', '🥲', '🙀', '😘', '🥺', '🟢', '😝', '🥴', '😐', '😆', '😊', '🤩', '😼', '😽', '🤭', '🐱','😹'];
+							const emojis = [];
 							const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 
 							api.setMessageReaction(randomEmoji, event.messageID, () => {}, true);
