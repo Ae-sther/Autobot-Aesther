@@ -551,9 +551,9 @@ let gifPath = __dirname + '/cache/connected.mp4';
 axios.get(gifUrl, { responseType: 'arraybuffer' })
 		.then(response => {
 				fs.writeFileSync(gifPath, response.data); 
-				return api.sendMessage("[🛅]𝗕𝗢𝗧 : シƬHƐᗩ©\n[🆔]𝗔𝗗𝗠𝗜𝗡 :https://www.facebook.com/thegodess.aesther\𝗻𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚....", event.threadID, () => 
+				return api.sendMessage("[🛅]𝗕𝗢𝗧 : シƬHƐᗩ©\n[🆔]𝗔𝗗𝗠𝗜𝗡 :https://www.facebook.com/thegodess.aesther\n𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚....", event.threadID, () => 
 						api.sendMessage({ 
-								body:`𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦\n■■■■■ 100%\✦ 𝗣𝗙 : ${prefix}\n┏━━━━━━━━━┓\n🌸 ▪ [𝗔𝗨𝗧𝗢𝗕𝗢 𝗩𝟮]\n☁️ ▪ 𝙇𝙄𝙉𝙆: https://https://www.facebook.com/thegodess.aesther\n✦( ˘▽˘)っcontact 𝗔𝗗𝗠𝗜𝗡✦┗━━━━━━━━━┛`, 
+								body:`𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦\n■■■■■ 100%\✦ 𝗣𝗙 : ${prefix}\n┏━━━━━━━━━┓\n🌸 ▪ [𝗔𝗨𝗧𝗢𝗕𝗢 𝗩𝟮]\n☁️ ▪ 𝙇𝙄𝙉𝙆: https://https://www.facebook.com/thegodess.aesther\n✦( ˘▽˘)っcontact 𝗔𝗗𝗠𝗜𝗡✦\n┗━━━━━━━━━┛`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
@@ -619,7 +619,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 													const gifPath = __dirname + "/cache/leave.gif";
 
 													// Assuming the file exists, send the message with the GIF
-													api.sendMessage({ body: `➤ 😮 ${name} ${type},➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
+													api.sendMessage({ body: `➤ 😮 ${name} ${type},\n➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
 											});
 									});
 							}
