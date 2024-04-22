@@ -613,13 +613,13 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 															return console.error('Failed to get user info:', err);
 													}
 													const name = userInfo[leaverID].name;
-													const type = (event.author == event.logMessageData.leftParticipantFbId) ? "left the group." : "was kicked by Admin of the group";
+													const type = (event.author == event.logMessageData.leftParticipantFbId) ? "𝗟𝗘𝗙𝗧(－－〆) the group." : "was 𝗞𝗜𝗖𝗞𝗘𝗗(；一_一) by Admin of the group";
 
 													const link = ["https://i.ibb.co/9ZGVFSd/image.gif"];
 													const gifPath = __dirname + "/cache/leave.gif";
 
 													// Assuming the file exists, send the message with the GIF
-													api.sendMessage({ body: `▪﹝${name}﹞\n🔴${type}🔴 the 𝗚𝗥𝗢𝗨𝗣,\n➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
+													api.sendMessage({ body: `🟡﹝${name}﹞${type},\n➫ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}☂️`, attachment: fs.createReadStream(gifPath) }, event.threadID);
 											});
 									});
 							}
