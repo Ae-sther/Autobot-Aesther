@@ -13,7 +13,7 @@ const axios = require('axios');
 module.exports.config = {
   name: "ai",
   version: 1.0,
-  credits: "aesther",//Api OtinXsandip
+  credits: "aesther",//Api aryan Api
   description: "AI",
   hasPrefix: false,
   usages: "{pn} [prompt]",
@@ -28,7 +28,7 @@ module.exports.run = async function ({ api, event, args }) {
       await api.sendMessage("シƬHƐᗩ©:\n\n☁️ღゝ◡╹)ノ[📑] 𝗛𝗜 !!", event.threadID);
       return;
     }
-    const response = await axios.get(`https://sandipbaruwal.onrender.com/gpt?prompt=${encodeURIComponent(prompt)}`);
+    const response = await axios.get(`axios.get(`https://arysprak.onrender.com/api/chatgpt?prompt=${encodeURIComponent(prompt)}`);
     const answer = response.data.answer;
 
     let formattedAnswer = "";
