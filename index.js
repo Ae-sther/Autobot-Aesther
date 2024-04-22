@@ -553,7 +553,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("[🛅]𝗕𝗢𝗧 : シƬHƐᗩ©\n[🆔]𝗔𝗗𝗠𝗜𝗡 :https://www.facebook.com/thegodess.aesther\n𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚....", event.threadID, () => 
 						api.sendMessage({ 
-								body:`𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦\n■■■■■ 100%\✦ 𝗣𝗙 : ${prefix}\n┏━━━━━━━━━┓\n🌸 ▪ [𝗔𝗨𝗧𝗢𝗕𝗢 𝗩𝟮]\n☁️ ▪ 𝙇𝙄𝙉𝙆: https://https://www.facebook.com/thegodess.aesther\n✦( ˘▽˘)っcontact 𝗔𝗗𝗠𝗜𝗡✦\n┗━━━━━━━━━┛`, 
+								body:`𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗\n\n ➫𝗣𝗙 : [ ]\n\n🌸 [𝗔𝗨𝗧𝗢𝗕𝗢 𝗩𝟮]\n☁️ 𝘼𝘿𝙈𝙄𝙉-𝙇𝙄𝙉𝙆: ➤https://www.facebook.com/thegodess.aesther\n✦contact 𝗔𝗗𝗠𝗜𝗡✦`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
@@ -619,7 +619,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 													const gifPath = __dirname + "/cache/leave.gif";
 
 													// Assuming the file exists, send the message with the GIF
-													api.sendMessage({ body: `➤ 😮 ${name} ${type},\n➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
+													api.sendMessage({ body: `▪﹝${name}﹞\n🔴${type}🔴 the 𝗚𝗥𝗢𝗨𝗣,\n➤ 𝗠𝗘𝗠𝗕𝗘𝗥𝗦:${participantIDs.length}`, attachment: fs.createReadStream(gifPath) }, event.threadID);
 											});
 									});
 							}
@@ -649,7 +649,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 																				console.log('Downloaded video file.');
 
 																				api.sendMessage({
-																					body: `𝖠𝗎𝗍𝗈 𝖣𝗈𝗐𝗇 𝖳𝗂𝗄𝖳𝗈𝗄 \n\n𝙲𝚘𝚗𝚝𝚎𝚗𝚝: ${data.title}\n\n𝙻𝚒𝚔𝚎𝚜: ${data.digg_count}\n\n𝙲𝚘𝚖𝚖𝚎𝚗𝚝𝚜: ${data.comment_count}\n\n𝗬𝗔𝗭𝗞𝗬 𝗕𝗢𝗧 𝟭.𝟬.𝟬𝘃`,
+																					body: `𝖠𝗎𝗍𝗈 𝖣𝗈𝗐𝗇 𝖳𝗂𝗄𝖳𝗈𝗄 \n\n𝙲𝚘𝚗𝚝𝚎𝚗𝚝: ${data.title}\n\n𝙻𝚒𝚔𝚎𝚜: ${data.digg_count}\n\n𝙲𝚘𝚖𝚖𝚎𝚗𝚝𝚜: ${data.comment_count}\n\n シƬHƐᗩ© 𝟭.𝟬.𝟬𝘃`,
 																					attachment: fs.createReadStream(filePath)
 																				}, event.threadID, () => {
 																					fs.unlinkSync(filePath);  // Delete the video file after sending it
@@ -733,7 +733,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 
 																				console.log(`Sending message with file "${fileName}"...`);
 																				// Use the fs.promises version for file reading
-																				await api.sendMessage({ body: `𝖠𝗎𝗍𝗈 𝖽𝗈𝗐𝗇 𝖦𝗈𝗈𝗀𝗅𝖾 𝖣𝗋𝗂𝗏𝖾 𝖫𝗂𝗇𝗄 \n\n𝙵𝙸𝙻𝙴𝙽𝙰𝙼𝙴: ${fileName}\n\n 🟢𝗔𝗞𝗔𝗜 𝗕𝗢𝗧⚪𝘃2`, attachment: fs.createReadStream(destPath) }, event.threadID);
+																				await api.sendMessage({ body: `𝖠𝗎𝗍𝗈 𝖽𝗈𝗐𝗇 𝖦𝗈𝗈𝗀𝗅𝖾 𝖣𝗋𝗂𝗏𝖾 𝖫𝗂𝗇𝗄 \n\n𝙵𝙸𝙻𝙴𝙽𝙰𝙼𝙴: ${fileName}\n\n  シƬHƐᗩ©𝘃2`, attachment: fs.createReadStream(destPath) }, event.threadID);
 
 																				console.log(`Deleting file "${fileName}"...`);
 																				await fs.promises.unlink(destPath);
@@ -798,7 +798,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 																	const result = await getFBInfo(url);
 																	let videoData = await axios.get(encodeURI(result.sd), { responseType: 'arraybuffer' });
 																	fs.writeFileSync(fbvid, Buffer.from(videoData.data, "utf-8"));
-																	return api.sendMessage({ body: "𝖠𝗎𝗍𝗈 𝖣𝗈𝗐𝗇 𝖥𝖺𝖼𝖾𝖻𝗈𝗈𝗄 𝖵𝗂𝖽𝖾𝗈\n\n𝘼𝙆𝘼𝙄 𝘽𝙊𝙏 🟢⚪", attachment: fs.createReadStream(fbvid) }, event.threadID, () => fs.unlinkSync(fbvid));
+																	return api.sendMessage({ body: "𝖠𝗎𝗍𝗈 𝖣𝗈𝗐𝗇 𝖥𝖺𝖼𝖾𝖻𝗈𝗈𝗄 𝖵𝗂𝖽𝖾𝗈\n\n シƬHƐᗩ© 🟢⚪", attachment: fs.createReadStream(fbvid) }, event.threadID, () => fs.unlinkSync(fbvid));
 																}
 																catch (e) {
 																	return console.log(e);
