@@ -40,7 +40,7 @@ module.exports.run = async function ({ api, event, args }) {
       }
     }
 
-    await api.sendMessage(`ღゝ◡╹)ノ[📑]:\n\n${formattedAnswer} ✦`, event.threadID);
+    await api.sendMessage(`シƬHƐᗩ©:\n━━━━━━━━━━━━\n${formattedAnswer}\n━━━━━━━━━━━━\n☁️ღゝ◡╹)ノ[📑]:https://www.facebook.com/thegodess.aesther`, event.threadID);
   } catch (error) {
     console.error("Error:", error.message);
   }
