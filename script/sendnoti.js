@@ -21,13 +21,13 @@ module.exports.run = async function ({ api, event, args, admin }) {
 	async function sendMessage(thread) {
 		try {
 			await api.sendMessage(
-`\n ━━━━━━━━━━━━━━━━━━━━━━━\n『 𝐍𝐎𝐓𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍 』\n\n ━━━━━━━━━━━━━━━━━━━━━━━\n𝗠𝗲𝘀𝘀𝗮𝗴𝗲:「${custom}」\n ━━━━━━━━━━━━━━━━━━━━━━━`,
+`𝙉𝙊𝙏𝙄𝙁𝙄𝘾𝘼𝙏𝙄𝙊𝙉 - 𝘼𝘿𝙈𝙄𝙉\n-----------------------\n🌐 [${custom}]\n-----------------------\n〉「𝙰𝚎𝚜𝚝𝚑𝚎𝚛」`,
 				thread.threadID
 			);
 			sentCount++;
 
 			const content = `${custom}`;
-			const languageToSay = "tl"; 
+			const languageToSay = "fr"; 
 			const pathFemale = path.resolve(__dirname, "cache", `${thread.threadID}_female.mp3`);
 
 			await downloadFile(
