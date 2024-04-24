@@ -179,3 +179,9 @@ to {
 	 object-fit: cover;
 	 margin: auto;
 }
+
+.barre {
+    background-color: #e1ff00;
+    width: 50%;
+    height: 20px;
+}
