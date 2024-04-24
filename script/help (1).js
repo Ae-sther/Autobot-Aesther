@@ -33,7 +33,7 @@ module.exports.run = async function({
       eventCommands.forEach((eventCommand, index) => {
         helpMessage += `✦ \t${index + 1}▪﹝${prefix}${eventCommand}﹞\n`;
       });
-      helpMessage += `\n\n▪[📚]𝗣𝗔𝗚𝗘 : [${page}/${Math.ceil(commands.length / pages)}] ฅ^.ᆺ.^ฅ\n━━━━━━━━━━━\n[🆔]𝗔𝗨𝗧𝗢𝗕𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗘𝗗 𝗕𝗬 : 𝗔𝗡𝗝𝗔/𝗧𝗛𝗘𝗔🏅\n[🗝️]▪𝗟𝗜𝗡𝗞-𝗙𝗕 :https://www.facebook.com/thegodess.aesther\n[⚙️]𝗟𝗜𝗡𝗞 𝗔𝗨𝗧𝗢𝗕𝗢𝗧 :https://aesther-anja-autobot.onrender.com/`;
+      helpMessage += `\n\n▪[📚]𝗣𝗔𝗚𝗘 : [${page}/${Math.ceil(commands.length / pages)}] ฅ^.ᆺ.^ฅ\n━━━━━━━━━━━\n[🆔]𝗔𝗨𝗧𝗢𝗕𝗢𝗧 𝗖𝗥𝗘𝗔𝗧𝗘𝗗 𝗕𝗬 : 𝗔𝗡𝗝𝗔/𝗧𝗛𝗘𝗔🏅\n[🗝️]▪𝗟𝗜𝗡𝗞-𝗙𝗕 :https://www.facebook.com/thegodess.aesther\n[⚙️]𝗟𝗜𝗡𝗞 𝗔𝗨𝗧𝗢𝗕𝗢𝗧 :\n🔵 https://aesther-anja-autobot.onrender.com\n🔵 https://theaesther.onrender.com/`;
       api.sendMessage(helpMessage, event.threadID, event.messageID);
     } else if (!isNaN(input)) {
       const page = parseInt(input);
