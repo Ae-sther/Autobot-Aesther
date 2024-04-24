@@ -3,7 +3,9 @@ body {
 		 background-image: url("https://i.postimg.cc/0N4WyDTZ/2e8d0687da0fca9cf6cfbd3c2c393add.jpg");
 		 background-size: cover;
 		 font-family: 'Poppins', sans-serif;
-	   border-radius: 10px;
+	         border-radius: 10px;
+	         background-attachment: fixed;
+	         animation: gradient 15s ease infinite;
 }
  .container {
 	   color: #FFFF;
