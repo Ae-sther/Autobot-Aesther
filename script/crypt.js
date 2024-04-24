@@ -1,12 +1,12 @@
 module.exports.config = {
-	name: "obfuscate",
+	name: "crypt",
 	version: "1.0.0",
 	role: 0,
 	credits: "cliff", //dont change the credits please, you can add modified by.....Remodified by.......converted by......
 	description: "Obfuscate JavaScript code",
 	aliases: ["ob"],
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "",
 };
 
