@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "callad",
 	version: "1.0.1",
 	hasPermssion: 0,
-	credits: "NTKhang, ManhG Fix Get",
+	credits: "aesther, ManhG Fix Get",
 	description: "Report bot's error to admin or comment",
 	usages: "[Error encountered or comments]",
 	cooldown: 5,
@@ -33,7 +33,7 @@ module.exports.handleReply = async function({ api: e, args: n, event: a, Users: 
 			break;
 		case "calladmin":
 			e.sendMessage({
-				body: `📌Feedback from admin ${i} to you:\n--------\n${a.body}\n--------\n»💬Reply to this message to continue sending reports to admin`,
+				body: `♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━ღ❦ღ┓\n☪ [${a.body}] ♡\n♡   𝘢𝘦𝘴𝘵𝘩𝘦𝘳-[📩]\n┗ღ❦ღ━━━━━┛[✦]`,
 				mentions: [{
 					tag: i,
 					id: a.senderID
