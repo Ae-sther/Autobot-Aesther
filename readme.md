@@ -1,15 +1,25 @@
-# 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝙘𝙤𝙢𝙢𝙪𝙣𝙖𝙪𝙩𝙮 𝙛𝙧 
+#𝗚𝗢𝗔𝗧 𝗕𝗢𝗧 𝗕𝗬 ﹝𝗔𝗨𝗧𝗢𝗕𝗢𝗧 𝗢𝗿𝗶𝗴𝗶𝗻𝗮𝗹 𝗖𝗹𝗶𝗳𝗳𝗩𝗶𝗻𝗰𝗲𝗻𝘁 𝗠𝗢𝗗 𝗔𝗘𝗦𝗧𝗛𝗘𝗥﹞
+# PROJECT CREATOR</h1>
+<img src="https://i.ibb.co/Nr8yGrK/440284066.jpg">
+<h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> 
 
-# 𝙇𝙀 𝘽𝙊𝙏 𝘼 𝙀𝙏𝙀 𝙃𝙊𝙎𝙏𝙀𝙍 𝙋𝘼𝙍 𝘾𝙃𝘼𝙏𝘽𝙊𝙏 𝘾𝙊𝙈𝙈𝙐𝙉𝘼𝙐𝙏𝙔😺
+# FB PROFILE PHOTO</h1>
+<img src="https://i.ibb.co/QQkNGNP/440160583.jpg" alt="banner">
+<h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> 
+ 
+  # ﹝𝗔𝗘𝗦𝗧𝗛𝗘𝗥﹞(𝘊𝘺𝘣𝘦𝘳𝘱𝘶𝘯𝘬)  V𝟭 - ABOUT PROJECT INFORMATION</h1>
 
+# MESSANGER CHAT BOT
+# MESSANGER CHATBOT BETA V1
+# OWNER : 𝗔𝗘𝗦𝗧𝗛𝗘𝗥 🔵𝗠𝗜𝗧𝗔𝗠𝗔-𝗦𝗔𝗠𝗔🔵 🍒
+# 𝗣𝗘𝗥𝗠𝗜𝗦𝗦𝗜𝗢𝗡 𝗧𝗢 𝗙𝗢𝗥𝗞 𝗢𝗡𝗟𝗬 𝗜𝗙 𝗨 𝗥𝗘𝗦𝗣𝗘𝗖𝗧 𝗧𝗛𝗘 𝗗𝗘𝗦𝗖𝗥𝗜𝗣𝗧𝗜𝗢𝗡 𝗢𝗙 𝗧𝗛𝗘 𝗣𝗥𝗢𝗝𝗘𝗖𝗧
+# ADDED ... COMMAND 𝗦𝗧𝗜𝗟𝗘 𝗨𝗣𝗗𝗔𝗧𝗘 𝗘𝗩𝗘𝗥𝗬𝗧𝗜𝗠𝗘
+# OWNER FB LINK:-https://https://www.facebook.com/thegodess.aesther)
+# GROUP LINK-https://m.me/j/AbYMH9AQTzoanLB_/
+𝗧𝗵𝗿𝗲𝗮𝗱 𝗜𝗗 💬
+6943226325755342
+# 𝗟𝗘 𝗕𝗢𝗧 𝗘𝗦𝗧 𝗔 𝗠𝗢𝗜 𝗔𝗘𝗦𝗧𝗛𝗘𝗥 𝗖'𝗘𝗦𝗧 𝗠𝗢𝗜 𝗤𝗨𝗜 𝗟𝗔 𝗙𝗔𝗜𝗧 𝗗𝗘𝗣𝗨𝗜𝗦 𝗟𝗘 𝗗𝗘𝗕𝗨𝗧 𝗗𝗢𝗡𝗖 𝗡𝗘 𝗗𝗜𝗦 𝗣𝗔𝗦 𝗤𝗨𝗘 𝗖'𝗘𝗦𝗧 𝗧𝗢𝗜 𝗖𝗔𝗥 𝗖𝗔 𝗡𝗘 𝗧𝗘 𝗥𝗘𝗡𝗗𝗥𝗔 𝗣𝗔𝗦 𝗠𝗘𝗜𝗟𝗟𝗘𝗨𝗥'
 
-# 𝙊𝙍𝙄𝙂𝙄𝙉𝘼𝙇 {𝘾𝙇𝙄𝙁𝙁𝙑𝙄𝙉𝘾𝙀𝙉𝙏🙏 𝙈𝙊𝘿 𝘼𝙆𝘼𝙄}
-
-
-# 𝙊𝙒𝙉𝙀𝙍 :𝙋𝙃𝘼𝙍𝙊𝙐𝙆/𝘿𝘼𝙀𝙈𝙊𝙉/𝙎𝙄𝘿𝙄𝘽𝙀
-
-# 𝙁𝘽 𝙇𝙄𝙉𝙆:https://www.facebook.com/more.sidibe.1?mibextid=JRoKG𝙞
-
-# 𝘿𝙄𝙏𝙀 𝘾𝙀 𝙌𝙐𝙀 𝙑𝙊𝙐𝙎 𝙑𝙊𝙐𝙇𝙀𝙕 💔🧑‍🦯
-
-# 𝙅𝙐𝙎𝙏 𝙐𝙉 𝘽𝙊𝙏 𝙋𝙊𝙐𝙍 𝙏𝙊𝙐𝙎 𝙊𝙠 
+# IMPORTANT TIPS
+⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+-🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵
