@@ -1,44 +1,33 @@
-const fonts = {
-  a: "𝖺", b: "𝖻", c: "𝖼", d: "𝖽", e: "𝖾", f: "𝖿", g: "𝗀", h: "𝗁",
-  i: "𝗂", j: "𝗃", k: "𝗄", l: "𝗅", m: "𝗆", n: "𝗇", o: "𝗈", 
-  p: "𝗉", q: "𝗊", r: "𝗋", s: "𝗌", t: "𝗍", u: "𝗎", v: "𝗏", 
-  w: "𝗐", x: "𝗑", y: "𝗒", z: "𝗓" 
-};
-
 const axios = require('axios');
-
 module.exports.config = {
-  name: "ai",
-  version: 1.0,
-  credits: "aesther",//Api OtinXsandip
-  description: "AI",
+  name: 'ai',
+  version: '1.0.0',
+  role: 0,
   hasPrefix: false,
-  usages: "{pn} [prompt]",
-  aliases: ["ai2", "bot"],
-  cooldown: 0,
+  aliases: ['gpt', 'openai'],
+  description: "An AI command powered by GPT-4",
+  usage: "Ai [promot]",
+  credits: '𝗮𝗲𝘀𝘁𝗵𝗲𝗿',
+  cooldown: 3,
 };
-
-module.exports.run = async function ({ api, event, args }) {
+module.exports.run = async function({
+  api,
+  event,
+  args
+}) {
+  const input = args.join(' ');
+  if (!input) {
+    api.sendMessage(`♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓`, event.threadID, event.messageID);
+    return;
+  }
+  api.sendMessage(``, event.threadID, event.messageID);
   try {
-    const prompt = args.join(" ");
-    if (!prompt) {
-      await api.sendMessage("シƬHƐᗩ©☁️ღゝ◡╹)ノ[📑]:\n\n /)___/)    ♡\n꒰ ˶• ༝ - ˶꒱ \n./づ~[🛄] ", event.threadID);
-      return;
-    }
-    const response = await axios.get(`https://sandipbaruwal.onrender.com/gpt?prompt=${encodeURIComponent(prompt)}`);
-    const answer = response.data.answer;
-
-    let formattedAnswer = "";
-    for (let char of answer) {
-      if (fonts[char.toLowerCase()]) {
-        formattedAnswer += fonts[char.toLowerCase()];
-      } else {
-        formattedAnswer += char;
-      }
-    }
-
-    await api.sendMessage(`シƬHƐᗩ©☁️ღゝ◡╹)ノ[📑]:\n\n${formattedAnswer} ☁️`, event.threadID);
+    const {
+      data
+    } = await axios.get(`https://soyeon-gpt4.onrender.com/api?prompt=${encodeURIComponent(input)}`);
+    const response = data.response;
+    api.sendMessage('♡   ∩_∩\n    （„• ֊ •„)♡\n┏━∪∪━━━━ღ❦ღ┓\n🌐['+ response +'] ♡\n♡   𝘢𝘦𝘴𝘵𝘩𝘦𝘳-[📩]\n┗ღ❦ღ━━━━━━━┛\n[✦]|𝗚𝗣𝗧-𝟰 ', event.threadID, event.messageID);
   } catch (error) {
-    console.error("Error:", error.message);
+    api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
   }
 };
